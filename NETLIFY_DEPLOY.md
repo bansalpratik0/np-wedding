@@ -1,0 +1,70 @@
+# Deploying nishikapratik.com with GitHub and Netlify
+
+## 1. Push this folder to GitHub
+
+Create an empty GitHub repository, for example:
+
+`nishikapratik-wedding`
+
+From this folder, run:
+
+```bash
+git init
+git add .
+git commit -m "Initial wedding website"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/nishikapratik-wedding.git
+git push -u origin main
+```
+
+## 2. Import the repository into Netlify
+
+1. Sign in to Netlify.
+2. Select **Add new project** → **Import an existing project**.
+3. Choose GitHub and select `nishikapratik-wedding`.
+4. Netlify should read `netlify.toml` automatically.
+5. Leave the build command empty.
+6. The publish directory is `.`.
+7. Deploy the site.
+
+Every future push to the `main` branch will update the production website.
+
+## 3. Connect nishikapratik.com
+
+1. Open the Netlify project.
+2. Go to **Domain management**.
+3. Select **Add a domain**.
+4. Enter `nishikapratik.com`.
+5. Follow the DNS records Netlify displays at your domain registrar.
+6. Add `www.nishikapratik.com` as a domain alias if desired.
+7. Choose the preferred primary domain so Netlify redirects the other version.
+
+Netlify will provision HTTPS after DNS validation.
+
+## 4. Updating wedding information
+
+Edit `content.js` for:
+
+- Events and dates
+- Dress palettes
+- Travel guidance
+- Accommodation
+- FAQs
+- Guest-help categories
+
+Then publish updates with:
+
+```bash
+git add .
+git commit -m "Update wedding details"
+git push
+```
+
+## RSVP limitation
+
+The current RSVP is a front-end preview. It stores the response in the guest's browser.
+
+Before inviting guests, connect it to one of:
+
+- Netlify Forms for a simple RSVP
+- Supabase for household lookup, editable responses, room assignments, and private guest data

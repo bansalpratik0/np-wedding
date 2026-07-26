@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="NP monogram">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop stop-color="#b88b4a"/>
+      <stop offset="1" stop-color="#d9bd8a"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#g)" stroke-width="1.5"/>
+  <path d="M24 80C42 52 44 35 45 28c8 13 14 27 18 43 6-11 10-23 13-36 8 15 14 31 20 48" fill="none" stroke="#f4eee4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M31 91c18-6 39-6 58 0" fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+</svg>

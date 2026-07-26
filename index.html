@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#112f38" />
+  <meta name="description" content="Nishika and Pratik's wedding celebration — events, travel, stay, dress inspiration, FAQs and RSVP." />
+  <meta property="og:title" content="Nishika & Pratik — Our Forever Begins" />
+  <meta property="og:description" content="28–29 January 2027 · Heritage Village Resort & Spa, Manesar" />
+  <meta property="og:image" content="assets/og-card.svg" />
+  <meta property="og:type" content="website" />
+  <title>Nishika & Pratik — Our Forever Begins</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="announcement">
+    <span>28–29 January 2027</span>
+    <span class="announcement-dot" aria-hidden="true"></span>
+    <span>Heritage Village Resort & Spa, Manesar</span>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Nishika and Pratik home">
+      <img src="assets/monogram.svg" alt="" />
+      <span>Nishika &amp; Pratik</span>
+    </a>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">
+      <span></span><span></span>
+      <span class="sr-only">Open menu</span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+      <a href="#celebrations">Celebrations</a>
+      <a href="#wear">What to wear</a>
+      <a href="#travel">Travel &amp; stay</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#rsvp" class="nav-rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-art hero-art-left" aria-hidden="true"></div>
+      <div class="hero-art hero-art-right" aria-hidden="true"></div>
+
+      <div class="hero-content reveal">
+        <p class="eyebrow">Three homes. One celebration.</p>
+        <img class="hero-monogram" src="assets/monogram.svg" alt="" />
+        <h1>Nishika <span>&amp;</span> Pratik</h1>
+        <p class="hero-kicker">Our forever begins</p>
+        <p class="hero-date">28–29 January 2027 · Manesar, India</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#celebrations">View the celebrations</a>
+          <a class="button button-ghost" href="#rsvp">RSVP</a>
+        </div>
+
+        <div class="countdown" aria-label="Countdown to the wedding">
+          <div><strong id="days">000</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+      </div>
+
+      <div class="journey-line" aria-hidden="true">
+        <span>India</span>
+        <i></i>
+        <span>United States</span>
+        <i></i>
+        <span>Nigeria</span>
+      </div>
+    </section>
+
+    <section class="origin-selector section-shell">
+      <div class="origin-copy reveal">
+        <p class="section-label">Your personalized guide</p>
+        <h2>Where will you be joining us from?</h2>
+        <p>Choose your departure region to see the most useful travel notes first. You can change this at any time.</p>
+      </div>
+
+      <div class="origin-buttons reveal" role="group" aria-label="Select departure region">
+        <button class="origin-button active" data-origin="india">India</button>
+        <button class="origin-button" data-origin="usa">United States</button>
+        <button class="origin-button" data-origin="nigeria">Nigeria</button>
+        <button class="origin-button" data-origin="elsewhere">Elsewhere</button>
+      </div>
+    </section>
+
+    <section class="welcome section-shell">
+      <div class="welcome-card reveal">
+        <div>
+          <p class="section-label">A note from us</p>
+          <h2>Come for the wedding.<br />Stay for the memories.</h2>
+        </div>
+        <div class="welcome-copy">
+          <p>We cannot wait to bring together the people who have shaped our lives across India, the United States, Nigeria, and beyond.</p>
+          <p>This website is your one-stop guide to the celebrations—from what to wear and how to get here, to where to stay and who to call when you arrive.</p>
+          <p class="signature">With love,<br /><strong>Nishika &amp; Pratik</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="celebrations section-shell" id="celebrations">
+      <div class="section-heading reveal">
+        <p class="section-label">The wedding weekend</p>
+        <h2>Two days. A lifetime of stories.</h2>
+        <p>Event timing and venue details below are ready to update as your final schedule is confirmed.</p>
+      </div>
+      <div class="events-grid" id="events-grid"></div>
+    </section>
+
+    <section class="wear section-shell" id="wear">
+      <div class="section-heading reveal">
+        <p class="section-label">Dress inspiration</p>
+        <h2>Celebrate in color</h2>
+        <p>These mood boards are inspiration—not a uniform. Dress joyfully, comfortably, and in whatever makes you feel ready to celebrate.</p>
+      </div>
+      <div class="mood-grid" id="mood-grid"></div>
+    </section>
+
+    <section class="travel section-shell" id="travel">
+      <div class="section-heading reveal">
+        <p class="section-label">Travel &amp; stay</p>
+        <h2>Everything you need to arrive relaxed</h2>
+        <p>Your selected departure region is shown first. All guests can still view the complete guide.</p>
+      </div>
+
+      <div class="travel-layout">
+        <aside class="travel-tabs reveal" aria-label="Travel guide categories">
+          <button class="travel-tab active" data-travel="india">From India</button>
+          <button class="travel-tab" data-travel="usa">From the United States</button>
+          <button class="travel-tab" data-travel="nigeria">From Nigeria</button>
+          <button class="travel-tab" data-travel="elsewhere">From elsewhere</button>
+          <button class="travel-tab" data-travel="stay">Accommodation</button>
+          <button class="travel-tab" data-travel="essentials">Guest essentials</button>
+        </aside>
+        <div class="travel-panel reveal" id="travel-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="weekend-mode section-shell" id="wedding-mode">
+      <div class="weekend-mode-card reveal">
+        <div>
+          <p class="section-label">Wedding mode</p>
+          <h2>Your live wedding-weekend dashboard</h2>
+          <p>From 27–30 January 2027, this area can automatically surface what is happening now, shuttle details, venue directions, weather notes and urgent announcements.</p>
+        </div>
+        <div class="mode-preview">
+          <span class="status-pill">Preview</span>
+          <p class="mode-time">Today · 6:45 PM</p>
+          <h3>Shuttle departure</h3>
+          <p>Meet in the main hotel lobby ten minutes before departure.</p>
+          <button class="text-button" type="button" id="demo-announcement">View sample announcement</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="faqs section-shell" id="faqs">
+      <div class="section-heading reveal">
+        <p class="section-label">Frequently asked questions</p>
+        <h2>What do you need help with?</h2>
+      </div>
+
+      <div class="faq-toolbar reveal">
+        <label>
+          <span class="sr-only">Search FAQs</span>
+          <input id="faq-search" type="search" placeholder="Search travel, outfits, food, children..." autocomplete="off" />
+        </label>
+        <div class="faq-filters" id="faq-filters" role="group" aria-label="FAQ categories"></div>
+      </div>
+
+      <div class="faq-list" id="faq-list"></div>
+      <p class="empty-state" id="faq-empty" hidden>No matching questions found. Try another search.</p>
+    </section>
+
+    <section class="rsvp section-shell" id="rsvp">
+      <div class="rsvp-card reveal">
+        <div class="rsvp-intro">
+          <p class="section-label">RSVP</p>
+          <h2>We hope you’ll celebrate with us</h2>
+          <p>This build includes a working RSVP prototype. Connect your final guest list or form endpoint before launch.</p>
+          <ul class="check-list">
+            <li>Household-based guest lookup</li>
+            <li>Event-by-event attendance</li>
+            <li>Dietary, travel and accommodation details</li>
+            <li>Updateable confirmation saved on this device</li>
+          </ul>
+        </div>
+
+        <form class="rsvp-form" id="rsvp-form">
+          <div class="form-step" data-step="1">
+            <span class="step-count">Step 1 of 3</span>
+            <h3>Find your invitation</h3>
+            <label>
+              Full name
+              <input name="guestName" required placeholder="Enter your name" />
+            </label>
+            <label>
+              Invitation code <span class="optional">(optional in preview)</span>
+              <input name="inviteCode" placeholder="e.g. NP2027" />
+            </label>
+            <button class="button button-primary form-next" type="button">Continue</button>
+          </div>
+
+          <div class="form-step" data-step="2" hidden>
+            <span class="step-count">Step 2 of 3</span>
+            <h3>Choose your celebrations</h3>
+            <div class="attendance-options" id="attendance-options"></div>
+            <div class="form-actions">
+              <button class="text-button form-back" type="button">Back</button>
+              <button class="button button-primary form-next" type="button">Continue</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3" hidden>
+            <span class="step-count">Step 3 of 3</span>
+            <h3>Travel and guest details</h3>
+            <div class="form-grid">
+              <label>
+                Dietary preference
+                <select name="diet">
+                  <option>Vegetarian</option>
+                  <option>Jain</option>
+                  <option>Vegan</option>
+                  <option>No preference</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                Accommodation needed?
+                <select name="stayNeeded">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </label>
+              <label>
+                Arrival date
+                <input type="date" name="arrivalDate" />
+              </label>
+              <label>
+                Flight or train number
+                <input name="travelNumber" placeholder="Optional" />
+              </label>
+            </div>
+            <label>
+              Allergies, accessibility needs or anything we should know
+              <textarea name="notes" rows="4" placeholder="Share any helpful details"></textarea>
+            </label>
+            <div class="form-actions">
+              <button class="text-button form-back" type="button">Back</button>
+              <button class="button button-primary" type="submit">Send RSVP</button>
+            </div>
+          </div>
+
+          <div class="form-success" id="rsvp-success" hidden>
+            <img src="assets/monogram.svg" alt="" />
+            <h3>Thank you!</h3>
+            <p>Your RSVP has been saved in this preview. Once the live form endpoint is connected, submissions will also be sent to your guest database.</p>
+            <button class="text-button" id="edit-rsvp" type="button">Edit response</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="guest-help section-shell" id="guest-help">
+      <div class="section-heading reveal">
+        <p class="section-label">Guest help centre</p>
+        <h2>Help when you need it</h2>
+        <p>Personal phone numbers stay private. Confirmed guests can be shown call and WhatsApp buttons once contacts are added to the site configuration.</p>
+      </div>
+      <div class="contact-grid" id="contact-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/monogram.svg" alt="" />
+    <p class="footer-names">Nishika &amp; Pratik</p>
+    <p>28–29 January 2027 · Heritage Village Resort &amp; Spa, Manesar</p>
+    <p class="footer-note">Checkout: 30 January 2027</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="announcement-dialog" id="announcement-dialog">
+    <button class="dialog-close" type="button" aria-label="Close">×</button>
+    <p class="section-label">Sample announcement</p>
+    <h2>Shuttles leave at 6:45 PM</h2>
+    <p>Please meet in the main hotel lobby by 6:35 PM. The transport desk will help direct guests to the correct vehicle.</p>
+    <p class="dialog-note">This can be updated from a simple content file without changing the page design.</p>
+  </dialog>
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
