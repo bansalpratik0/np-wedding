@@ -7,9 +7,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "12:00 PM",
       venue: "Anarkali Bagh",
-      description: "The auspicious beginning of our wedding celebrations.",
-      accent: "#cfa44c",
-      palette: ["#f0d9b5","#cfa44c","#0a5b5c","#c73979"]
+      description: "The auspicious beginning of our wedding celebrations."
     },
     {
       number: "02",
