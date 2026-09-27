@@ -1,152 +1,125 @@
 window.WEDDING_CONTENT = {
-  weddingDate: "2027-01-28T10:00:00+05:30",
-  rsvpEndpoint: "",
-  eventLocation: "Heritage Village Resort & Spa, Manesar",
+  weddingDate: "2027-01-28T12:00:00+05:30",
   events: [
     {
-      number: "Celebration 01",
-      date: "Thursday · 28 January",
-      title: "Welcome & Mehendi",
-      description: "A relaxed opening celebration filled with color, conversation and the first of many happy photographs.",
-      time: "Timing to be confirmed",
-      venue: "Heritage Village",
-      attire: "Sunlit festive",
-      palette: ["#d49c6a", "#efd89c", "#819878", "#cf7e80"]
+      number: "01",
+      name: "Shubh Arambh",
+      date: "Thursday  /  28 January",
+      time: "12:00 PM",
+      venue: "Anarkali Bagh",
+      description: "The auspicious beginning of our wedding celebrations.",
+      accent: "#cfa44c",
+      palette: ["#f0d9b5","#cfa44c","#0a5b5c","#c73979"]
     },
     {
-      number: "Celebration 02",
-      date: "Thursday · 28 January",
-      title: "Sangeet",
-      description: "An electric evening of performances, music, dinner and dancing. Pack your dancing shoes.",
-      time: "Evening",
-      venue: "Heritage Village",
-      attire: "Dazzling Indian festive",
-      palette: ["#0d2748", "#174a63", "#c6a15b", "#8d6ca6"]
+      number: "02",
+      name: "Starry Nights",
+      date: "Thursday  /  28 January",
+      time: "7:00 PM",
+      venue: "Haveli Bagh",
+      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama.",
+      accent: "#23375f",
+      palette: ["#111111","#17233c","#0d6b4f","#8d1d43","#5f2b65","#b7bac2"]
     },
     {
-      number: "Celebration 03",
-      date: "Friday · 29 January",
-      title: "Wedding Ceremony",
-      description: "The moment we have all been waiting for—tradition, emotion and the beginning of our forever.",
-      time: "Timing to be confirmed",
-      venue: "Heritage Village",
-      attire: "Royal Indian elegance",
-      palette: ["#9e2a2b", "#c58b4c", "#f0d9b5", "#6d7f55"]
+      number: "03",
+      name: "Phoolon ki Holi",
+      date: "Friday  /  29 January",
+      time: "11:00 AM",
+      venue: "Anarkali Bagh",
+      description: "Pastels, sunshine and flowers come together for a bright daytime celebration.",
+      accent: "#e3bd42",
+      palette: ["#e8b5b7","#efaa80","#f4cf59","#a9c88c","#a8c8df","#b9a7d6"]
     },
     {
-      number: "Celebration 04",
-      date: "Friday · 29 January",
-      title: "Reception",
-      description: "Dinner, celebration and one final dance floor before we send everyone home with full hearts.",
-      time: "Evening",
-      venue: "Heritage Village",
-      attire: "Formal celebration",
-      palette: ["#173642", "#7b5160", "#b98d55", "#d6c6af"]
+      number: "04",
+      name: "The Royal Roll-In",
+      date: "Friday  /  29 January",
+      time: "5:30 PM",
+      venue: "Heritage Main Porch",
+      description: "A grand royal arrival marking the beginning of the wedding evening.",
+      accent: "#c73979",
+      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#6d2f91","#c99b37"]
+    },
+    {
+      number: "05",
+      name: "The Royal Mehefil",
+      date: "Friday  /  29 January",
+      time: "7:00 PM",
+      venue: "Sher Bagh",
+      description: "Rich Indian colour, gold accents and the final royal celebration of the night.",
+      accent: "#6d2f91",
+      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#e9a900","#6d2f91","#c99b37"]
     }
   ],
-  moods: [
+  palettes: [
     {
-      title: "Sunlit Festive",
-      event: "Welcome & Mehendi",
-      description: "Fresh color, breathable fabrics and playful details for a joyful daytime celebration.",
-      colors: ["#d49c6a", "#efd89c", "#819878", "#cf7e80", "#b5a0c8"],
-      note: "Think printed lehengas, kurta sets, sarees, anarkalis and relaxed Indo-western looks."
+      title: "Phoolon ki Holi",
+      mood: "Pastels & sunshine",
+      description: "Light, cheerful colour with a garden-like softness.",
+      colors: [
+        ["Blush","#e8b5b7"],["Peach","#efaa80"],["Butter Yellow","#f4cf59"],
+        ["Pistachio","#a9c88c"],["Powder Blue","#a8c8df"],["Lilac","#b9a7d6"]
+      ],
+      note: "Light Indian wear, breezy fabrics, soft florals and cheerful daytime styling."
     },
     {
-      title: "Midnight Dazzle",
-      event: "Sangeet",
-      description: "Jewel tones, shimmer and dramatic evening silhouettes that move beautifully on the dance floor.",
-      colors: ["#0d2748", "#174a63", "#c6a15b", "#8d6ca6", "#1b5c4e"],
-      note: "Sequins, metallic details, bandhgalas, cocktail sarees and glamorous Indo-western styles are welcome."
+      title: "Starry Nights",
+      mood: "Dark, glamorous & sparkling",
+      description: "Rich evening tones with metallic accents and depth.",
+      colors: [
+        ["Black","#101010"],["Midnight","#17233c"],["Navy","#263961"],
+        ["Emerald","#0d6b4f"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
+      ],
+      note: "Evening festive or cocktail wear, rich solids, sequins and metallic accents."
     },
     {
-      title: "Royal Celebration",
-      event: "Wedding & Reception",
-      description: "Regal color, rich texture and timeless Indian elegance for the ceremony and evening celebration.",
-      colors: ["#9e2a2b", "#c58b4c", "#f0d9b5", "#6d7f55", "#173642"],
-      note: "Traditional Indian wear, formal sarees, lehengas, sherwanis, bandhgalas and elevated evening looks."
+      title: "Royal Wedding",
+      mood: "Rich Indian colours",
+      description: "Saturated festive colour grounded with unmistakable gold.",
+      colors: [
+        ["Rani Pink","#cf0a6a"],["Magenta","#ad0057"],["Vermilion","#dc4927"],
+        ["Saffron","#ef9b00"],["Marigold","#e9a900"],["Royal Purple","#6d2f91"],["Gold","#c99b37"]
+      ],
+      note: "Traditional Indian formalwear in saturated festive colours with gold accents."
     }
   ],
   travel: {
     india: {
-      label: "Travel from India",
-      intro: "Plan your route to Manesar by air, rail or road. Final transport pickup windows can be added once arrivals are collected.",
-      points: [
-        ["Closest airport", "Indira Gandhi International Airport, Delhi."],
-        ["By road", "The venue is in Manesar, Gurugram. Share the exact hotel pin with your driver."],
-        ["Arrival planning", "Arriving on 27 January is recommended for a relaxed start."],
-        ["Wedding transport", "Pickup and shuttle details will appear here once finalized."]
-      ]
+      label: "Travelling from India",
+      intro: "Plan your arrival into Manesar by air, rail or road. Final pickup and shuttle details will be added as guest arrivals are confirmed.",
+      points: [["Airport","Indira Gandhi International Airport, Delhi."],["Arrival","27 January is the easiest arrival day for a relaxed start."],["Venue","Heritage Village Resort & Spa, Manesar, Gurugram."],["Transfers","Wedding transport details will appear here once finalized."]]
     },
     usa: {
-      label: "Travel from the United States",
-      intro: "A practical guide for long-haul arrivals, including timing, Delhi airport, mobile connectivity and a softer landing before the celebrations.",
-      points: [
-        ["Recommended arrival", "Aim to reach Delhi by 27 January to allow time for jet lag and outfit preparation."],
-        ["Airport", "Fly into Indira Gandhi International Airport, Delhi."],
-        ["Connectivity", "An India-ready eSIM or international roaming plan is useful from arrival."],
-        ["Essentials", "Carry a universal adapter, medicines, travel insurance and wedding outfits in hand luggage where possible."]
-      ]
+      label: "Travelling from the United States",
+      intro: "A practical long-haul guide to arriving rested and ready for the celebrations.",
+      points: [["Arrival","Reach Delhi by 27 January where possible."],["Airport","Indira Gandhi International Airport, Delhi."],["Connectivity","An India-ready eSIM or international roaming plan is useful from arrival."],["Pack smart","Keep medication and at least one wedding outfit in hand luggage where possible."]]
     },
     nigeria: {
-      label: "Travel from Nigeria",
-      intro: "This guide is for Indian guests traveling from Nigeria, with a focus on departure logistics, baggage planning and the journey from Delhi airport to the venue.",
-      points: [
-        ["Flight planning", "Compare routes into Delhi and leave comfortable buffer time for connections."],
-        ["Baggage", "Confirm allowance for wedding outfits and any additional formalwear."],
-        ["Delhi arrival", "Keep the venue address and transport contact available offline."],
-        ["Recommended arrival", "Arriving by 27 January gives you time to rest before the first celebration."]
-      ]
+      label: "Travelling from Nigeria",
+      intro: "For Indian guests travelling from Nigeria, this guide focuses on departure planning, baggage and the onward journey from Delhi.",
+      points: [["Flights","Compare routes into Delhi with comfortable connection time."],["Baggage","Confirm allowance for wedding outfits and formalwear."],["Arrival","Reach Delhi by 27 January where possible."],["Transfers","Keep the venue address and transport contact available offline."]]
     },
     elsewhere: {
-      label: "Travel from elsewhere",
-      intro: "A flexible starting point for guests joining from other countries. Country-specific notes can be added once the final guest list is confirmed.",
-      points: [
-        ["Airport", "Indira Gandhi International Airport, Delhi."],
-        ["Arrival date", "27 January is the recommended arrival day."],
-        ["Local transfer", "The venue is located in Manesar, Gurugram."],
-        ["Need help?", "Use the guest help centre once your RSVP is confirmed."]
-      ]
+      label: "Travelling from elsewhere",
+      intro: "A simple starting point for guests joining from other countries.",
+      points: [["Airport","Indira Gandhi International Airport, Delhi."],["Arrival","27 January is the recommended arrival day."],["Venue","Heritage Village Resort & Spa, Manesar."],["Help","Guest-specific guidance can be added once RSVPs are confirmed."]]
     },
     stay: {
       label: "Accommodation",
-      intro: "The wedding celebrations are hosted at Heritage Village Resort & Spa, Manesar, keeping guests close to every event.",
-      points: [
-        ["Venue stay", "Room allocation and check-in instructions will be shared with confirmed guests."],
-        ["Checkout", "Venue checkout is 30 January 2027."],
-        ["Room requests", "Accessibility, children and room-sharing requests can be submitted in the RSVP."],
-        ["Meals", "Final inclusions and meal timings can be published here once confirmed."]
-      ]
-    },
-    essentials: {
-      label: "Guest essentials",
-      intro: "A compact checklist for a smooth wedding weekend.",
-      points: [
-        ["Documents", "Passport or ID, tickets and travel insurance."],
-        ["Clothing", "Event outfits, comfortable shoes and a light layer for evenings."],
-        ["Connectivity", "Phone charger, power bank and an India-compatible adapter if needed."],
-        ["Personal items", "Medication, toiletries and anything needed for children or elderly family members."]
-      ]
+      intro: "Stay close to every celebration at the wedding venue.",
+      points: [["Venue stay","Room allocation and check-in information will be shared with confirmed guests."],["Checkout","30 January 2027."],["Requests","Accessibility, children and room-sharing notes can be shared in your RSVP."],["Meals","Final meal timings and inclusions will be shared closer to the wedding."]]
     }
   },
   faqs: [
-    ["Wedding events", "What happens at each Indian wedding function?", "Each celebration has its own energy—from the relaxed daytime welcome to the high-energy Sangeet and the traditional wedding ceremony. Event descriptions and final timings will be published in the Celebrations section."],
-    ["Dress", "Do I need to wear Indian clothing?", "Indian clothing is encouraged but not required. The mood boards include Indian and Indo-western directions so every guest can choose something comfortable and celebratory."],
-    ["Dress", "Are there colors I should avoid?", "Final couple and family colors can be listed here once outfits are confirmed. Until then, use the event palettes as inspiration rather than strict rules."],
-    ["Travel", "Which airport should I fly into?", "Indira Gandhi International Airport in Delhi is the recommended airport for the venue in Manesar."],
-    ["Travel", "When should international guests arrive?", "Arriving by 27 January 2027 is recommended so you can rest before the celebrations begin."],
-    ["Accommodation", "Where are guests staying?", "The celebrations are hosted at Heritage Village Resort & Spa, Manesar. Room-allocation details will be shared with confirmed guests."],
-    ["Accommodation", "When is hotel checkout?", "Checkout from the venue is 30 January 2027."],
-    ["Food", "Will vegetarian food be available?", "Yes. The RSVP also collects Jain, vegan, allergy and other dietary requirements."],
-    ["Children", "Are children welcome?", "Household invitations and child attendance can be managed through the RSVP once the final guest list is connected."],
-    ["Transport", "Will transportation be provided?", "Pickup and wedding-day shuttle details will be published once guest arrival information is collected."],
-    ["RSVP", "Can I change my RSVP later?", "Yes. The final system can allow guests to reopen and update their response using their invitation code."],
-    ["Help", "Who should I contact during the wedding?", "Verified guests will see the wedding concierge, transport and hotel contacts in the Guest Help Centre."]
-  ],
-  contacts: [
-    ["WC", "Wedding Concierge", "Schedule, venue and guest coordination"],
-    ["TR", "Transport Desk", "Airport pickups and wedding shuttles"],
-    ["HT", "Hotel Front Desk", "Rooms, check-in and venue assistance"],
-    ["ME", "Medical Help", "Local medical and emergency guidance"]
+    ["What happens at each celebration?","The wedding is spread across five distinct functions. Exact timings and venues are listed in the Celebrations section."],
+    ["Do I need to wear Indian clothing?","Indian clothing is encouraged but not mandatory. The colour guide is intended as inspiration, not a uniform."],
+    ["Do I need to match the palette exactly?","No. The palette is a shopping guide and exact shade matching is not required."],
+    ["Which airport should I fly into?","Indira Gandhi International Airport in Delhi is the recommended airport for Manesar."],
+    ["When should international guests arrive?","Arriving by 27 January 2027 is recommended so you have time to settle in before the first celebration."],
+    ["Where are guests staying?","The celebrations are hosted at Heritage Village Resort & Spa, Manesar. Room-allocation details will be shared with confirmed guests."],
+    ["When is checkout?","Checkout is 30 January 2027."],
+    ["Will vegetarian food be available?","Yes. You can also share Jain, vegan, allergy or other dietary requirements in your RSVP."],
+    ["Can I change my RSVP later?","The final guest system can allow responses to be reopened using your invitation code."]
   ]
 };
