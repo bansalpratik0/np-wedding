@@ -15,9 +15,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "7:00 PM",
       venue: "Haveli Bagh",
-      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama.",
-      accent: "#243B73",
-      palette: ["#111111","#243B73","#00A36C","#8d1d43","#5f2b65","#b7bac2"]
+      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama."
     },
     {
       number: "03",
@@ -25,9 +23,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "11:00 AM",
       venue: "Anarkali Bagh",
-      description: "Pastels, sunshine and flowers come together for a bright daytime celebration.",
-      accent: "#e3bd42",
-      palette: ["#e8b5b7","#efaa80","#f4cf59","#a9c88c","#a8c8df","#b9a7d6"]
+      description: "Pastels, sunshine and flowers come together for a bright daytime celebration."
     },
     {
       number: "04",
@@ -35,9 +31,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "5:30 PM",
       venue: "Heritage Main Porch",
-      description: "A grand royal arrival that opens the wedding evening.",
-      accent: "#6d2f91",
-      sharedPaletteGroup: "royal-evening"
+      description: "A grand royal arrival that opens the wedding evening."
     },
     {
       number: "05",
@@ -45,9 +39,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "7:00 PM",
       venue: "Sher Bagh",
-      description: "An evening of celebration, music and rich Indian colour.",
-      accent: "#6d2f91",
-      sharedPaletteGroup: "royal-evening"
+      description: "An evening of celebration, music and rich Indian colour."
     },
     {
       number: "06",
@@ -56,19 +48,9 @@ window.WEDDING_CONTENT = {
       time: "10:30 PM",
       venue: "Haveli Bagh",
       description: "Musical pheras - seven sacred circles, set to music.",
-      accent: "#6d2f91",
-      sharedPaletteGroup: "royal-evening",
       sharedPaletteEnd: true
     }
   ],
-  sharedPalettes: {
-    "royal-evening": {
-      title: "The Royal Wedding Evening",
-      subtitle: "One palette · Three moments",
-      events: "The Royal Roll-In · The Royal Mehefil · The Sacred Seven",
-      colors: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#e9a900","#6d2f91","#c99b37"]
-    }
-  },
   palettes: [
     {
       title: "Phoolon ki Holi",
@@ -137,6 +119,6 @@ window.WEDDING_CONTENT = {
     ["Where are guests staying?","The celebrations are hosted at Heritage Village Resort & Spa, Manesar. Room-allocation details will be shared with confirmed guests."],
     ["When is checkout?","Checkout is 30 January 2027."],
     ["Will vegetarian food be available?","Yes. You can also share Jain, vegan, allergy or other dietary requirements in your RSVP."],
-    ["Can I change my RSVP later?","The final guest system can allow responses to be reopened using your invitation code."]
+    ["Can I change my RSVP later?","In this preview, your response is saved only in this browser and can be edited from the confirmation screen."]
   ]
 };
