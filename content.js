@@ -47,8 +47,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "10:30 PM",
       venue: "Haveli Bagh",
-      description: "Musical pheras - seven sacred circles, set to music.",
-      sharedPaletteEnd: true
+      description: "Musical pheras - seven sacred circles, set to music."
     }
   ],
   palettes: [
