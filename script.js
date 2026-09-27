@@ -26,30 +26,9 @@
   C.events.forEach(e=>{
     const card=document.createElement("article");
     card.className="event-card reveal";
-    if(e.sharedPaletteGroup) card.classList.add("shared-palette-event");
-    if(e.accent) card.style.setProperty("--accent",e.accent);
-    const palette = Array.isArray(e.palette) && e.palette.length
-      ? `<div class="mini-palette">${e.palette.map(c=>`<i style="background:${c}"></i>`).join("")}</div>`
-      : "";
     const venue = e.venue ? `<span>${e.venue}</span>` : "";
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}${palette}</div>`;
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
     eventList.appendChild(card);
-
-    if(e.sharedPaletteEnd && e.sharedPaletteGroup && C.sharedPalettes?.[e.sharedPaletteGroup]){
-      const group=C.sharedPalettes[e.sharedPaletteGroup];
-      const band=document.createElement("aside");
-      band.className="shared-palette-band reveal";
-      band.innerHTML=`
-        <div class="shared-palette-copy">
-          <span class="shared-palette-kicker">${group.subtitle}</span>
-          <strong>${group.title}</strong>
-          <small>${group.events}</small>
-        </div>
-        <div class="shared-palette-swatches" aria-label="Shared Royal Wedding Evening colour palette">
-          ${group.colors.map(c=>`<i style="background:${c}"></i>`).join("")}
-        </div>`;
-      eventList.appendChild(band);
-    }
   });
 
   const paletteGrid=$("#palette-grid");
