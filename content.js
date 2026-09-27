@@ -35,9 +35,9 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "5:30 PM",
       venue: "Heritage Main Porch",
-      description: "A grand royal arrival marking the beginning of the wedding evening.",
-      accent: "#c73979",
-      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#6d2f91","#c99b37"]
+      description: "A grand royal arrival that flows directly into The Royal Mehefil.",
+      accent: "#6d2f91",
+      paletteNote: "Shared wedding palette"
     },
     {
       number: "05",
