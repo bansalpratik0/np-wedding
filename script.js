@@ -19,7 +19,7 @@
     if(e.accent) card.style.setProperty("--accent",e.accent);
     const palette = Array.isArray(e.palette) && e.palette.length
       ? `<div class="mini-palette">${e.palette.map(c=>`<i style="background:${c}"></i>`).join("")}</div>`
-      : "";
+      : (e.paletteNote ? `<div class="palette-note-inline">${e.paletteNote}</div>` : "");
     card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong><span>${e.venue}</span>${palette}</div>`;
     eventList.appendChild(card);
   });
