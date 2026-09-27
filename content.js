@@ -54,7 +54,7 @@ window.WEDDING_CONTENT = {
       name: "The Sacred Seven",
       date: "Friday  /  29 January",
       time: "10:30 PM",
-      venue: "",
+      venue: "Haveli Bagh",
       description: "Musical pheras - seven sacred circles, set to music.",
       accent: "#6d2f91",
       sharedPaletteGroup: "royal-evening",
