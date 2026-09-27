@@ -79,7 +79,7 @@ window.WEDDING_CONTENT = {
         ["Rani Pink","#cf0a6a"],["Magenta","#ad0057"],["Vermilion","#dc4927"],
         ["Saffron","#ef9b00"],["Marigold","#e9a900"],["Royal Purple","#6d2f91"],["Gold","#c99b37"]
       ],
-      note: "Traditional Indian formalwear in saturated festive colours with gold accents."
+      note: "For the Royal Wedding events, these colours can appear as accents or details through embroidery, dupattas, jackets and accessories. Wearing a full base shade from the palette is equally welcome."
     }
   ],
   travel: {
