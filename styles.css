@@ -443,3 +443,12 @@ body{
     border-radius:10px;
   }
 }
+
+.palette-note-inline{
+  margin-top:12px;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  opacity:.78;
+}
