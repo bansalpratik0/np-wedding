@@ -16,8 +16,8 @@ window.WEDDING_CONTENT = {
       time: "7:00 PM",
       venue: "Haveli Bagh",
       description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama.",
-      accent: "#23375f",
-      palette: ["#111111","#17233c","#0d6b4f","#8d1d43","#5f2b65","#b7bac2"]
+      accent: "#243B73",
+      palette: ["#111111","#243B73","#00A36C","#8d1d43","#5f2b65","#b7bac2"]
     },
     {
       number: "03",
@@ -35,9 +35,9 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "5:30 PM",
       venue: "Heritage Main Porch",
-      description: "A grand royal arrival that flows directly into The Royal Mehefil.",
+      description: "A grand royal arrival that opens the wedding evening.",
       accent: "#6d2f91",
-      paletteNote: "Shared wedding palette"
+      sharedPaletteGroup: "royal-evening"
     },
     {
       number: "05",
@@ -45,11 +45,30 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "7:00 PM",
       venue: "Sher Bagh",
-      description: "Rich Indian colour, gold accents and the final royal celebration of the night.",
+      description: "An evening of celebration, music and rich Indian colour.",
       accent: "#6d2f91",
-      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#e9a900","#6d2f91","#c99b37"]
+      sharedPaletteGroup: "royal-evening"
+    },
+    {
+      number: "06",
+      name: "The Sacred Seven",
+      date: "Friday  /  29 January",
+      time: "10:30 PM",
+      venue: "",
+      description: "Musical pheras - seven sacred circles, set to music.",
+      accent: "#6d2f91",
+      sharedPaletteGroup: "royal-evening",
+      sharedPaletteEnd: true
     }
   ],
+  sharedPalettes: {
+    "royal-evening": {
+      title: "The Royal Wedding Evening",
+      subtitle: "One palette · Three moments",
+      events: "The Royal Roll-In · The Royal Mehefil · The Sacred Seven",
+      colors: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#e9a900","#6d2f91","#c99b37"]
+    }
+  },
   palettes: [
     {
       title: "Phoolon ki Holi",
@@ -66,8 +85,8 @@ window.WEDDING_CONTENT = {
       mood: "Dark, glamorous & sparkling",
       description: "Rich evening tones with metallic accents and depth.",
       colors: [
-        ["Black","#101010"],["Midnight","#17233c"],["Navy","#263961"],
-        ["Emerald","#0d6b4f"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
+        ["Black","#101010"],["Midnight","#243B73"],["Navy","#263961"],
+        ["Emerald","#00A36C"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
       ],
       note: "Evening festive or cocktail wear, rich solids, sequins and metallic accents."
     },
@@ -110,7 +129,7 @@ window.WEDDING_CONTENT = {
     }
   },
   faqs: [
-    ["What happens at each celebration?","The wedding is spread across five distinct functions. Exact timings and venues are listed in the Celebrations section."],
+    ["What happens at each celebration?","The wedding is spread across six functions over two days. Exact timings and available venue details are listed in the Celebrations section."],
     ["Do I need to wear Indian clothing?","Indian clothing is encouraged but not mandatory. The colour guide is intended as inspiration, not a uniform."],
     ["Do I need to match the palette exactly?","No. The palette is a shopping guide and exact shade matching is not required."],
     ["Which airport should I fly into?","Indira Gandhi International Airport in Delhi is the recommended airport for Manesar."],
