@@ -525,3 +525,26 @@ body{
     justify-content:flex-start;
   }
 }
+
+
+/* --- Clean celebration schedule + RSVP preview note --- */
+.celebrations .event-card:before{
+  display:none;
+}
+.celebrations .event-card{
+  padding-left:28px;
+}
+.mini-palette,
+.shared-palette-band,
+.palette-note-inline{
+  display:none !important;
+}
+.rsvp-preview-note{
+  margin:2px 0 18px;
+  padding:12px 14px;
+  border-left:2px solid var(--gold);
+  background:rgba(207,164,76,.08);
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.5;
+}
