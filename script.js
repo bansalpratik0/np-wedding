@@ -92,7 +92,8 @@
   const editNow=$("#edit-rsvp");
   const copyLink=$("#copy-rsvp-link");
   const queryToken=new URLSearchParams(location.search).get("rsvp");
-  try{localStorage.removeItem("np-rsvp-token")}catch{}\n  let rsvpToken=queryToken||"";
+  try{localStorage.removeItem("np-rsvp-token")}catch{}
+  let rsvpToken=queryToken||"";
 
   const setRsvpStatus=(message,type="")=>{
     if(!rsvpStatus)return;
@@ -157,11 +158,11 @@
       const payload=await res.json();
       if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to load RSVP.");
       populateRsvp(payload.rsvp);
-      storage.set("np-rsvp-token",rsvpToken);
+
       if(rsvpSubmit)rsvpSubmit.textContent="Save changes";
       setRsvpStatus("Your saved RSVP is loaded. Update anything that has changed.","success");
     }catch(err){
-      if(queryToken)storage.set("np-rsvp-token","");
+
       rsvpToken="";
       setRsvpStatus(err.message||"We couldn't load that RSVP. You can submit a new response.","error");
     }
@@ -202,7 +203,7 @@
 
       const wasNew=!rsvpToken;
       rsvpToken=payload.rsvp.edit_token;
-      storage.set("np-rsvp-token",rsvpToken);
+
       const editUrl=buildEditUrl(rsvpToken);
 
       if(rsvpEditLink){
@@ -233,7 +234,6 @@
         successCopy.textContent=base+emailNote;
       }
 
-      history.replaceState(null,"",editUrl);
       rsvpFields.hidden=true;
       rsvpSuccess.hidden=false;
       setRsvpStatus("");
