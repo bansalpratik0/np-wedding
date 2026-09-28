@@ -55,6 +55,14 @@
     setRequired(femaleFields, gender === "female");
     setRequired(maleFields, gender === "male");
 
+    ["topSize","trouserSize"].forEach((name) => {
+      const control = form?.elements.namedItem(name);
+      if (control && "disabled" in control) {
+        control.disabled = !gender;
+        control.required = Boolean(gender);
+      }
+    });
+
     if (gender === "female") {
       topSizeLabel.textContent = "Usual top size";
       bottomSizeLabel.textContent = "Usual skirt / trouser size";
