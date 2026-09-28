@@ -81,15 +81,197 @@
   }
   faqSearch.addEventListener("input",renderFaqs);renderFaqs();
 
-  const attendance=$("#attendance-options");
-  C.events.forEach((e,i)=>attendance.insertAdjacentHTML("beforeend",`<label class="attendance-row"><span><strong>${e.name}</strong><small>${e.date} / ${e.time}</small></span><select name="event_${i}"><option value="yes">Attending</option><option value="no">Not attending</option><option value="unsure">Not sure</option></select></label>`));
+  const RSVP_API="https://rkglbozacxbiojvnmqyb.supabase.co/functions/v1/wedding-rsvp";
+  const form=$("#rsvp-form");
+  const rsvpFields=$("#rsvp-fields");
+  const rsvpSuccess=$("#rsvp-success");
+  const attendingDetails=$("#attending-details");
+  const rsvpStatus=$("#rsvp-status");
+  const rsvpSubmit=$("#rsvp-submit");
+  const rsvpEditLink=$("#rsvp-edit-link");
+  const editNow=$("#edit-rsvp");
+  const copyLink=$("#copy-rsvp-link");
+  const queryToken=new URLSearchParams(location.search).get("rsvp");
+  let rsvpToken=queryToken||storage.get("np-rsvp-token")||"";
 
-  const form=$("#rsvp-form"),steps=$$(".form-step",form);let idx=0;
-  const show=i=>{idx=Math.max(0,Math.min(i,steps.length-1));steps.forEach((s,n)=>s.hidden=n!==idx)};
-  $$(".next",form).forEach(b=>b.addEventListener("click",()=>{const req=$$("input[required]",steps[idx]);if(req.some(x=>!x.reportValidity()))return;show(idx+1)}));
-  $$(".back",form).forEach(b=>b.addEventListener("click",()=>show(idx-1)));
-  form.addEventListener("submit",e=>{e.preventDefault();storage.set("np-rsvp",JSON.stringify(Object.fromEntries(new FormData(form).entries())));steps.forEach(s=>s.hidden=true);$("#rsvp-success").hidden=false});
-  $("#edit-rsvp").addEventListener("click",()=>{$("#rsvp-success").hidden=true;show(0)});
+  const setRsvpStatus=(message,type="")=>{
+    if(!rsvpStatus)return;
+    rsvpStatus.textContent=message;
+    rsvpStatus.dataset.type=type;
+  };
+
+  const updateAttendanceUI=()=>{
+    const value=$('input[name="attending"]:checked',form)?.value||"";
+    if(attendingDetails)attendingDetails.hidden=value!=="yes";
+  };
+
+  $$('input[name="attending"]',form).forEach(input=>input.addEventListener("change",updateAttendanceUI));
+
+  const populateRsvp=(data)=>{
+    const map={
+      guestName:data.guest_name,
+      email:data.email,
+      partySize:data.party_size,
+      dietary:data.dietary,
+      stayNeeded:data.stay_needed,
+      arrivalDate:data.arrival_date,
+      travelNumber:data.travel_number,
+      notes:data.notes
+    };
+    Object.entries(map).forEach(([name,value])=>{
+      const field=form?.elements.namedItem(name);
+      if(field && "value" in field)field.value=value??"";
+    });
+    const attending=data.attending===true?"yes":"no";
+    const radio=form?.querySelector(`input[name="attending"][value="${attending}"]`);
+    if(radio)radio.checked=true;
+    updateAttendanceUI();
+  };
+
+  const buildEditUrl=(token)=>{
+    const url=new URL(location.href);
+    url.search="";
+    url.hash="";
+    url.searchParams.set("rsvp",token);
+    url.hash="rsvp";
+    return url.toString();
+  };
+
+  const sendEditEmail=async({token,email,guestName,attending})=>{
+    const editUrl=buildEditUrl(token);
+    const res=await fetch("/.netlify/functions/rsvp-email",{
+      method:"POST",
+      headers:{"content-type":"application/json","accept":"application/json"},
+      body:JSON.stringify({token,email,guestName,attending,editUrl})
+    });
+    const payload=await res.json().catch(()=>({}));
+    return {ok:res.ok&&payload.ok===true,error:payload.error||""};
+  };
+
+  const loadExistingRsvp=async()=>{
+    if(!rsvpToken)return;
+    setRsvpStatus("Loading your saved RSVP…");
+    try{
+      const res=await fetch(`${RSVP_API}?token=${encodeURIComponent(rsvpToken)}`,{
+        headers:{"accept":"application/json"}
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to load RSVP.");
+      populateRsvp(payload.rsvp);
+      storage.set("np-rsvp-token",rsvpToken);
+      if(rsvpSubmit)rsvpSubmit.textContent="Save changes";
+      setRsvpStatus("Your saved RSVP is loaded. Update anything that has changed.","success");
+    }catch(err){
+      if(queryToken)storage.set("np-rsvp-token","");
+      rsvpToken="";
+      setRsvpStatus(err.message||"We couldn't load that RSVP. You can submit a new response.","error");
+    }
+  };
+
+  form?.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!form.reportValidity())return;
+
+    const data=Object.fromEntries(new FormData(form).entries());
+    const attending=data.attending==="yes";
+    const body={
+      guest_name:data.guestName,
+      email:data.email,
+      attending:data.attending,
+      party_size:attending?data.partySize:"0",
+      stay_needed:attending?data.stayNeeded:"",
+      arrival_date:attending?data.arrivalDate:"",
+      travel_number:attending?data.travelNumber:"",
+      dietary:attending?data.dietary:"",
+      notes:data.notes||""
+    };
+    if(rsvpToken)body.edit_token=rsvpToken;
+
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=true;
+      rsvpSubmit.textContent=rsvpToken?"Saving…":"Sending…";
+    }
+    setRsvpStatus("Saving your RSVP…");
+
+    try{
+      const res=await fetch(RSVP_API,{
+        method:"POST",
+        headers:{"content-type":"application/json","accept":"application/json"},
+        body:JSON.stringify(body)
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to save RSVP.");
+
+      const wasNew=!rsvpToken;
+      rsvpToken=payload.rsvp.edit_token;
+      storage.set("np-rsvp-token",rsvpToken);
+      const editUrl=buildEditUrl(rsvpToken);
+
+      if(rsvpEditLink){
+        rsvpEditLink.href=editUrl;
+        rsvpEditLink.textContent=editUrl;
+      }
+
+      let emailResult={ok:true,error:""};
+      if(wasNew){
+        emailResult=await sendEditEmail({
+          token:rsvpToken,
+          email:payload.rsvp.email,
+          guestName:payload.rsvp.guest_name,
+          attending:payload.rsvp.attending
+        });
+      }
+
+      const successCopy=$("#rsvp-success-copy");
+      if(successCopy){
+        const base=payload.rsvp.attending
+          ?"Your RSVP is saved. You can return later to add or update travel details."
+          :"Your response is saved. If your plans change, use your private edit link to update it.";
+        const emailNote=wasNew
+          ?(emailResult.ok
+            ?" We also emailed your private edit link."
+            :" Your RSVP is saved, but the email could not be sent yet—please keep the private link below.")
+          :"";
+        successCopy.textContent=base+emailNote;
+      }
+
+      history.replaceState(null,"",editUrl);
+      rsvpFields.hidden=true;
+      rsvpSuccess.hidden=false;
+      setRsvpStatus("");
+    }catch(err){
+      setRsvpStatus(err.message||"Something went wrong. Please try again.","error");
+      if(rsvpSubmit){
+        rsvpSubmit.disabled=false;
+        rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+      }
+    }
+  });
+
+  editNow?.addEventListener("click",()=>{
+    rsvpSuccess.hidden=true;
+    rsvpFields.hidden=false;
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=false;
+      rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+    }
+    form?.querySelector('input[name="guestName"]')?.focus();
+  });
+
+  copyLink?.addEventListener("click",async()=>{
+    if(!rsvpToken)return;
+    const editUrl=buildEditUrl(rsvpToken);
+    try{
+      await navigator.clipboard.writeText(editUrl);
+      copyLink.textContent="Edit link copied";
+      setTimeout(()=>copyLink.textContent="Copy edit link",1800);
+    }catch{
+      rsvpEditLink?.focus();
+    }
+  });
+
+  updateAttendanceUI();
+  loadExistingRsvp();
 
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.1});
   $$(".reveal").forEach(x=>obs.observe(x));
