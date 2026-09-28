@@ -1,3 +1,4 @@
+@import url("rsvp.css?v=1");
 body.splash-open{overflow:hidden}
 .wedding-splash.image-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden;cursor:pointer;background:#03191b;opacity:1;transition:opacity .45s ease,visibility .45s ease}
 .wedding-splash.image-splash[hidden]{display:none!important}
