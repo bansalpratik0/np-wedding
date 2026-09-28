@@ -6,8 +6,7 @@ body.splash-open{overflow:hidden}
   position:fixed;
   inset:0;
   z-index:9999;
-  display:grid;
-  place-items:center;
+  display:block;
   overflow:hidden;
   cursor:pointer;
   background:#03191b;
@@ -52,8 +51,17 @@ body.splash-open{overflow:hidden}
 }
 
 .splash-shell{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   width:min(92vw,720px);
+  max-height:calc(100dvh - 32px);
   padding:clamp(28px,4vw,48px) clamp(22px,5vw,56px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   border:1px solid rgba(239,214,146,.42);
   border-radius:32px;
@@ -65,7 +73,7 @@ body.splash-open{overflow:hidden}
     inset 0 0 0 1px rgba(255,255,255,.035);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-  position:relative;
+  overflow:auto;
 }
 
 .splash-shell::before,
@@ -84,7 +92,13 @@ body.splash-open{overflow:hidden}
   right:12px;bottom:12px;border-right:1px solid;border-bottom:1px solid;border-radius:0 0 18px 0;
 }
 
+.splash-shell > *{
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .splash-monogram-wrap{
+  flex:0 0 auto;
   width:clamp(126px,18vw,188px);
   aspect-ratio:1/1;
   margin:0 auto 18px;
@@ -105,7 +119,9 @@ body.splash-open{overflow:hidden}
 }
 
 .splash-kicker{
+  width:100%;
   margin:0 0 11px;
+  text-align:center;
   color:#d9b966;
   font-family:"Cinzel",serif;
   font-size:.72rem;
@@ -114,7 +130,9 @@ body.splash-open{overflow:hidden}
 }
 
 .splash-shell h1{
+  width:100%;
   margin:0;
+  text-align:center;
   color:#fff7e8;
   font-family:"Italiana",serif;
   font-size:clamp(3rem,7vw,5.7rem);
@@ -143,7 +161,9 @@ body.splash-open{overflow:hidden}
 .splash-rule b{font-weight:400;font-size:.8rem}
 
 .splash-date{
+  width:100%;
   margin:0;
+  text-align:center;
   font-family:"Cinzel",serif;
   color:#f1dfad;
   font-size:clamp(.9rem,2vw,1.18rem);
@@ -152,7 +172,9 @@ body.splash-open{overflow:hidden}
 }
 
 .splash-venue{
+  width:100%;
   margin:9px 0 0;
+  text-align:center;
   color:rgba(255,248,234,.76);
   font-size:clamp(.76rem,1.5vw,.92rem);
   letter-spacing:.08em;
@@ -197,7 +219,11 @@ body.splash-open{overflow:hidden}
   }
 
   .splash-shell{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     width:min(92vw,520px);
+    max-height:calc(100dvh - 20px);
     padding:30px 20px 32px;
     border-radius:24px;
     background:linear-gradient(180deg,rgba(2,43,45,.88),rgba(1,25,27,.94));
