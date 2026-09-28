@@ -27,3 +27,10 @@
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+
+[[headers]]
+  for = "/royal-attire-kostco/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, noimageindex"
+    Cache-Control = "private, no-store"
