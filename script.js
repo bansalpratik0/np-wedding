@@ -193,9 +193,13 @@
       }
       const successCopy=$("#rsvp-success-copy");
       if(successCopy){
-        successCopy.textContent=attending==="yes"
+        const baseMessage=attending==="yes"
           ?"Your RSVP is saved. You can return later to add or update travel details."
           :"Your response is saved. If your plans change, use your private edit link to update it.";
+        const emailMessage=payload.emailSent
+          ?" We also emailed your private edit link."
+          :(payload.emailError ? " Your RSVP is saved, but we could not email the link yet—please keep the private link below." : "");
+        successCopy.textContent=baseMessage+emailMessage;
       }
       history.replaceState(null,"",editUrl);
       rsvpFields.hidden=true;
