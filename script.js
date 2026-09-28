@@ -92,7 +92,7 @@
   const editNow=$("#edit-rsvp");
   const copyLink=$("#copy-rsvp-link");
   const queryToken=new URLSearchParams(location.search).get("rsvp");
-  let rsvpToken=queryToken||storage.get("np-rsvp-token")||"";
+  try{localStorage.removeItem("np-rsvp-token")}catch{}\n  let rsvpToken=queryToken||"";
 
   const setRsvpStatus=(message,type="")=>{
     if(!rsvpStatus)return;
