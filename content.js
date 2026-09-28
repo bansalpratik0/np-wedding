@@ -118,6 +118,6 @@ window.WEDDING_CONTENT = {
     ["Where are guests staying?","The celebrations are hosted at Heritage Village Resort & Spa, Manesar. Room-allocation details will be shared with confirmed guests."],
     ["When is checkout?","Checkout is 30 January 2027."],
     ["Will vegetarian food be available?","Yes. You can also share Jain, vegan, allergy or other dietary requirements in your RSVP."],
-    ["Can I change my RSVP later?","Yes. After you submit, we will email you a private edit link. Use it later to update attendance, guest count, dietary requirements, accommodation, travel details, or notes."]
+    ["Can I change my RSVP later?","Yes. After you submit, we will email you a private edit link. Use it later to update attendance, guest count, dietary requirements, travel details, or notes."]
   ]
 };
