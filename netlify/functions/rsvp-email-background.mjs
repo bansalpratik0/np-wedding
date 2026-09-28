@@ -51,11 +51,12 @@ export default async (req) => {
     const context = contextPayload.context;
 
     if (context.alreadySent) {
-      await rsvpAction({
+      const completed = await rsvpAction({
         action: "complete_email_job",
         edit_token: token,
         msg_id: msgId
       });
+      if (completed.deleted !== true) throw new Error("Queue acknowledgement failed");
       return;
     }
 
@@ -104,11 +105,12 @@ export default async (req) => {
       `
     });
 
-    await rsvpAction({
+    const completed = await rsvpAction({
       action: "complete_email_job",
       edit_token: token,
       msg_id: msgId
     });
+    if (completed.deleted !== true) throw new Error("Queue acknowledgement failed");
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     console.error("RSVP email background job failed", { token, msgId, message });
