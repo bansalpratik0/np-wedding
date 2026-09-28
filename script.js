@@ -158,7 +158,7 @@
 
     if(rsvpSubmit){
       rsvpSubmit.disabled=true;
-      rsvpSubmit.textContent=rsvpToken?"Saving…":"Sending…";
+      rsvpSubmit.textContent="Saving…";
     }
     setRsvpStatus("Saving your RSVP…");
 
@@ -186,9 +186,9 @@
         const base=payload.rsvp.attending
           ?"Your RSVP is saved. You can return later to add or update travel details."
           :"Your response is saved. If your plans change, use your private edit link to update it.";
-        const emailNote=(wasNew||payload.email_queued)
+        const emailNote=payload.email_queued
           ?" We’re sending your private edit link to your email now."
-          :"";
+          :(wasNew ? " Your private edit link is available below." : "");
         successCopy.textContent=base+emailNote;
       }
 
