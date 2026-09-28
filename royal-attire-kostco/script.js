@@ -115,8 +115,7 @@
       shouldersFemale:data.shoulders,
       armHoles:data.arm_holes,
       lengthFromShoulder:data.length_from_shoulder,
-      lengthFromWaist:data.length_from_waist,
-      crotchFemale:data.crotch
+      lengthFromWaist:data.length_from_waist
     } : {
       chest:data.chest,
       jacketLength:data.jacket_length_from_shoulder,
@@ -182,8 +181,7 @@
         shoulders:value("shouldersFemale"),
         arm_holes:value("armHoles"),
         length_from_shoulder:value("lengthFromShoulder"),
-        length_from_waist:value("lengthFromWaist"),
-        crotch:value("crotchFemale")
+        length_from_waist:value("lengthFromWaist")
       });
     } else {
       Object.assign(body, {
