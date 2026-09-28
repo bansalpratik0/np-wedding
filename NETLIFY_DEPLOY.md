@@ -60,11 +60,8 @@ git commit -m "Update wedding details"
 git push
 ```
 
-## RSVP limitation
+## RSVP backend
 
-The current RSVP is a front-end preview. It stores the response in the guest's browser.
+The RSVP uses a Netlify Function at `/.netlify/functions/rsvp` with Netlify Blobs for persistent storage.
 
-Before inviting guests, connect it to one of:
-
-- Netlify Forms for a simple RSVP
-- Supabase for household lookup, editable responses, room assignments, and private guest data
+Netlify installs the `@netlify/blobs` dependency from `package.json` during deploy. RSVP records persist across deployments. Guests receive private edit links that reopen the same RSVP record.
