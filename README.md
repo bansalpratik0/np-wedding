@@ -21,7 +21,7 @@ Dark, responsive wedding website for **nishikapratik.com**.
 - Travel guidance for India, the United States, Nigeria, and elsewhere
 - Accommodation and checkout information
 - Searchable FAQs
-- Three-step RSVP prototype
+- Persistent RSVP with private edit links and editable travel details
 - Guest Help Centre structure
 - Wedding Mode announcement preview
 - Social-sharing artwork
@@ -73,6 +73,10 @@ Follow `NETLIFY_DEPLOY.md`.
 
 ## RSVP status
 
-The included RSVP is a UI prototype. It saves responses in the visitor's browser using local storage.
+The RSVP is live-backed through a Netlify Function and Netlify Blobs.
 
-Set `rsvpEndpoint` in `content.js` only after a secure form or database endpoint has been created. Do not publish private guest contact data directly in the static files.
+- One attendance response covers the entire wedding.
+- Guests receive a private edit link after submitting.
+- Returning through that link reloads the same RSVP for edits.
+- Travel, accommodation, dietary requirements, party size, and notes can be updated later.
+- RSVP records persist across deploys.
