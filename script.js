@@ -6,7 +6,7 @@
 
 
   const splash=$("#wedding-splash"), splashEnter=$("#splash-enter");
-  const splashSeen=storage.get("np-splash-entered")==="1";
+  const splashSeen=sessionStorage.getItem("np-splash-entered")==="1";
   if(splashSeen){
     splash?.setAttribute("hidden","");
     document.body.classList.remove("splash-open");
@@ -16,7 +16,7 @@
   }
   const enterSite=()=>{
     if(!splash || splash.hasAttribute("hidden")) return;
-    storage.set("np-splash-entered","1");
+    sessionStorage.setItem("np-splash-entered","1");
     splash.classList.add("is-leaving");
     document.body.classList.remove("splash-open");
     setTimeout(()=>splash.setAttribute("hidden",""),700);
