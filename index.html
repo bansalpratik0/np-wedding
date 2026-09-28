@@ -5,18 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#062f33" />
   <meta name="description" content="Nishika & Pratik - 28&ndash;29 January 2027, Manesar." />
+  <link rel="icon" type="image/jpeg" href="assets/wedding-logo.jpg?v=3" />
+  <link rel="apple-touch-icon" href="assets/wedding-logo.jpg?v=3" />
   <title>Nishika & Pratik - 28&ndash;29 January 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="splash-open">
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wedding-splash" id="wedding-splash" role="dialog" aria-modal="true" aria-label="Welcome to Nishika and Pratik's wedding website">
+    <div class="splash-glow splash-glow-left" aria-hidden="true"></div>
+    <div class="splash-glow splash-glow-right" aria-hidden="true"></div>
+    <div class="splash-floral splash-floral-left" aria-hidden="true"></div>
+    <div class="splash-floral splash-floral-right" aria-hidden="true"></div>
+
+    <div class="splash-stage">
+      <div class="splash-arch" aria-hidden="true"></div>
+      <div class="splash-lantern splash-lantern-left" aria-hidden="true"><i></i></div>
+      <div class="splash-lantern splash-lantern-right" aria-hidden="true"><i></i></div>
+
+      <div class="splash-content">
+        <div class="splash-monogram">
+          <img src="assets/wedding-logo.jpg" alt="Nishika and Pratik wedding monogram" />
+        </div>
+        <p class="splash-kicker">A royal celebration of love</p>
+        <h1>Nishika <span>&amp;</span> Pratik</h1>
+        <div class="splash-divider" aria-hidden="true"><i></i></div>
+        <p class="splash-date">28&ndash;29 January 2027</p>
+        <p class="splash-venue">Heritage Village Resort &amp; Spa &middot; Manesar</p>
+        <button class="splash-enter" id="splash-enter" type="button">Enter Website <span>&rarr;</span></button>
+      </div>
+
+      <div class="splash-floor" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Nishika and Pratik home">
-      <span class="brand-mark">NP</span>
+      <span class="brand-mark brand-mark-image"><img src="assets/wedding-logo.jpg" alt="" /></span>
       <span class="brand-copy">Nishika <i>&amp;</i> Pratik</span>
     </a>
     <button class="menu-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><span></span><span></span></button>
