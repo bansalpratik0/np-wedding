@@ -1,7 +1,6 @@
 import nodemailer from "nodemailer";
 
 const SUPABASE_URL = "https://rkglbozacxbiojvnmqyb.supabase.co";
-const SUPABASE_KEY = "sb_publishable_zlgVnY4SU-QawfXzZYyg0w_0YkchhZ9";
 const FROM = "Nishika & Pratik <nishikapratik@gmail.com>";
 
 const json = (body, status = 200) =>
@@ -17,17 +16,14 @@ const clean = (v, max = 500) => String(v ?? "").trim().slice(0, max);
 const isEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 async function verifyTokenEmail(token, email) {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/verify_wedding_rsvp_email_token`, {
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/wedding-rsvp`, {
     method: "POST",
-    headers: {
-      apikey: SUPABASE_KEY,
-      authorization: `Bearer ${SUPABASE_KEY}`,
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({ p_token: token, p_email: email })
+    headers: { "content-type": "application/json", "accept": "application/json" },
+    body: JSON.stringify({ action: "verify_email", edit_token: token, email })
   });
   if (!res.ok) return false;
-  return (await res.json()) === true;
+  const payload = await res.json().catch(() => ({}));
+  return payload.ok === true && payload.verified === true;
 }
 
 export default async (req) => {
