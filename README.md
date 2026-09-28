@@ -80,3 +80,14 @@ The RSVP is live-backed through a Netlify Function and Netlify Blobs.
 - Returning through that link reloads the same RSVP for edits.
 - Travel, accommodation, dietary requirements, party size, and notes can be updated later.
 - RSVP records persist across deploys.
+
+
+## RSVP email delivery
+
+Guests provide an email address with their RSVP. On first submission, the site emails their private edit link from `nishikapratik@gmail.com`.
+
+Netlify must have this environment variable configured:
+
+- `GMAIL_APP_PASSWORD` — a Google App Password created for `nishikapratik@gmail.com`. Do not use the normal Gmail password.
+
+If email delivery fails, the RSVP remains saved and the private edit link is still shown on-screen.
