@@ -65,3 +65,16 @@ git push
 The RSVP uses a Netlify Function at `/.netlify/functions/rsvp` with Netlify Blobs for persistent storage.
 
 Netlify installs the `@netlify/blobs` dependency from `package.json` during deploy. RSVP records persist across deployments. Guests receive private edit links that reopen the same RSVP record.
+
+
+## Gmail setup for RSVP edit links
+
+The RSVP function sends the guest's private edit link from `nishikapratik@gmail.com` using Gmail SMTP.
+
+1. Enable 2-Step Verification on `nishikapratik@gmail.com`.
+2. Create a Google App Password for the website.
+3. In Netlify, open **Site configuration → Environment variables**.
+4. Add `GMAIL_APP_PASSWORD` with the generated App Password.
+5. Redeploy the site.
+
+Never commit the App Password to GitHub.
