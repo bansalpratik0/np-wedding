@@ -117,17 +117,6 @@
     return url.toString();
   };
 
-  const sendEditEmail=async({token,email,guestName,attending})=>{
-    const editUrl=buildEditUrl(token);
-    const res=await fetch("/.netlify/functions/rsvp-email",{
-      method:"POST",
-      headers:{"content-type":"application/json","accept":"application/json"},
-      body:JSON.stringify({token,email,guestName,attending,editUrl})
-    });
-    const payload=await res.json().catch(()=>({}));
-    return {ok:res.ok&&payload.ok===true,error:payload.error||""};
-  };
-
   const loadExistingRsvp=async()=>{
     if(!rsvpToken)return;
     setRsvpStatus("Loading your saved RSVP…");
@@ -155,6 +144,7 @@
     const data=Object.fromEntries(new FormData(form).entries());
     const attending=data.attending==="yes";
     const body={
+      async_email:true,
       guest_name:data.guestName,
       email:data.email,
       attending:data.attending,
@@ -191,25 +181,13 @@
         rsvpEditLink.textContent=editUrl;
       }
 
-      let emailResult={ok:true,error:""};
-      if(wasNew){
-        emailResult=await sendEditEmail({
-          token:rsvpToken,
-          email:payload.rsvp.email,
-          guestName:payload.rsvp.guest_name,
-          attending:payload.rsvp.attending
-        });
-      }
-
       const successCopy=$("#rsvp-success-copy");
       if(successCopy){
         const base=payload.rsvp.attending
           ?"Your RSVP is saved. You can return later to add or update travel details."
           :"Your response is saved. If your plans change, use your private edit link to update it.";
-        const emailNote=wasNew
-          ?(emailResult.ok
-            ?" We also emailed your private edit link."
-            :" Your RSVP is saved, but the email could not be sent yet—please keep the private link below.")
+        const emailNote=(wasNew||payload.email_queued)
+          ?" We’re sending your private edit link to your email now."
           :"";
         successCopy.textContent=base+emailNote;
       }
