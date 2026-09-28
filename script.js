@@ -113,7 +113,6 @@
       email:data.email,
       partySize:data.party_size,
       dietary:data.dietary,
-      stayNeeded:data.stay_needed,
       arrivalDate:data.arrival_date,
       travelNumber:data.travel_number,
       notes:data.notes
@@ -179,7 +178,6 @@
       email:data.email,
       attending:data.attending,
       party_size:attending?data.partySize:"0",
-      stay_needed:attending?data.stayNeeded:"",
       arrival_date:attending?data.arrivalDate:"",
       travel_number:attending?data.travelNumber:"",
       dietary:attending?data.dietary:"",
