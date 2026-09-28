@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="splash.css?v=2" />
-  <link rel="stylesheet" href="rsvp.css?v=1" />
 </head>
 <body class="splash-open">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -139,84 +138,34 @@
         <div class="section-heading light reveal">
           <span class="eyebrow">RSVP</span>
           <h2>Save your place<br>in our story.</h2>
-          <p>One response covers the entire wedding. You can return later using your private edit link to add or update travel details.</p>
+          <p>Tell us which celebrations you are joining and anything we should know to make your stay seamless.</p>
         </div>
-        <form id="rsvp-form" class="rsvp-card reveal" novalidate>
-          <div id="rsvp-fields">
-            <p class="step-label">Your RSVP</p>
-
-            <div class="form-grid">
-              <label>
-                Full name
-                <input name="guestName" required autocomplete="name" placeholder="Enter your full name">
-              </label>
-              <label>
-                Email address
-                <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
-              </label>
-            </div>
-
-            <fieldset class="rsvp-choice">
-              <legend>Will you be joining us?</legend>
-              <div class="choice-row">
-                <label class="choice-card"><input type="radio" name="attending" value="yes" required><span>Yes, we'll be there</span></label>
-                <label class="choice-card"><input type="radio" name="attending" value="no" required><span>Sadly, we can't make it</span></label>
-              </div>
-            </fieldset>
-
-            <div id="attending-details" hidden>
-              <div class="form-grid">
-                <label>
-                  Total guests in your party <span>including you</span>
-                  <input type="number" name="partySize" min="1" max="20" value="1" inputmode="numeric">
-                </label>
-
-                <label>
-                  Accommodation needed?
-                  <select name="stayNeeded">
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
-                </label>
-
-                <label>
-                  Arrival date
-                  <div class="date-wrap"><input type="date" name="arrivalDate"></div>
-                </label>
-
-                <label>
-                  Flight / train number
-                  <input name="travelNumber" placeholder="You can add this later">
-                </label>
-              </div>
-
-              <label>
-                Dietary requirements
-                <textarea name="dietary" rows="3" placeholder="Please tell us any dietary requirements, allergies, Jain preferences, etc."></textarea>
-              </label>
-            </div>
-
-            <label>
-              Anything else we should know?
-              <textarea name="notes" rows="4" placeholder="Children, accessibility needs, room notes, or anything else"></textarea>
-            </label>
-
-            <p class="rsvp-edit-note">After submitting, we'll email your private edit link to you from <strong>nishikapratik@gmail.com</strong>. Keep it handy if you want to add flight details or change your response later.</p>
-            <div id="rsvp-status" class="rsvp-status" role="status" aria-live="polite"></div>
-            <button type="submit" class="btn btn-gold" id="rsvp-submit">Send RSVP</button>
+        <form id="rsvp-form" class="rsvp-card reveal">
+          <div class="form-step" data-step="0">
+            <p class="step-label">01 &middot; About you</p>
+            <label>Full name<input name="guestName" required placeholder="Enter your full name"></label>
+            <p class="rsvp-preview-note">Preview only — responses are currently saved in this browser and are not submitted to us yet.</p>
+            <button type="button" class="btn btn-gold next">Continue</button>
           </div>
-
-          <div id="rsvp-success" class="form-success" hidden>
-            <div class="success-seal">NP</div>
-            <h3>Shukriya</h3>
-            <p id="rsvp-success-copy">Your RSVP has been saved.</p>
-            <a id="rsvp-edit-link" class="rsvp-private-link" href="#rsvp">Your private edit link</a>
-            <div class="form-actions rsvp-success-actions">
-              <button type="button" class="text-btn" id="copy-rsvp-link">Copy edit link</button>
-              <button type="button" class="text-btn" id="edit-rsvp">Edit response now</button>
+          <div class="form-step" data-step="1" hidden>
+            <p class="step-label">02 &middot; Your celebrations</p>
+            <div id="attendance-options"></div>
+            <div class="form-actions"><button type="button" class="text-btn back">Back</button><button type="button" class="btn btn-gold next">Continue</button></div>
+          </div>
+          <div class="form-step" data-step="2" hidden>
+            <p class="step-label">03 &middot; Travel details</p>
+            <div class="form-grid">
+              <label>Dietary preference<select name="diet"><option>Vegetarian</option><option>Jain</option><option>Vegan</option><option>No preference</option><option>Other</option></select></label>
+              <label>Accommodation needed?<select name="stayNeeded"><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure yet</option></select></label>
+              <label>Arrival date<div class="date-wrap"><input type="date" name="arrivalDate"></div></label>
+              <label>Flight / train number<input name="travelNumber" placeholder="Optional"></label>
             </div>
+            <label>Anything we should know?<textarea name="notes" rows="4" placeholder="Allergies, accessibility, children, or other notes"></textarea></label>
+            <div class="form-actions"><button type="button" class="text-btn back">Back</button><button type="submit" class="btn btn-gold">Send RSVP</button></div>
+          </div>
+          <div id="rsvp-success" class="form-success" hidden>
+            <div class="success-seal">NP</div><h3>Shukriya</h3><p>Your response has been saved in this preview.</p>
+            <button type="button" class="text-btn" id="edit-rsvp">Edit response</button>
           </div>
         </form>
       </div>
@@ -233,6 +182,5 @@
   <script src="content.js"></script>
   <script src="script.js"></script>
   <!-- netlify-deploy-trigger-2026-09-27 -->
-  <!-- RSVP production deploy: live-form-v2 -->
 </body>
 </html>
