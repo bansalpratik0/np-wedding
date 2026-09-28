@@ -1,0 +1,11 @@
+{
+  "name": "np-wedding",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^6.10.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
