@@ -145,10 +145,16 @@
           <div id="rsvp-fields">
             <p class="step-label">Your RSVP</p>
 
-            <label>
-              Full name
-              <input name="guestName" required autocomplete="name" placeholder="Enter your full name">
-            </label>
+            <div class="form-grid">
+              <label>
+                Full name
+                <input name="guestName" required autocomplete="name" placeholder="Enter your full name">
+              </label>
+              <label>
+                Email address
+                <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
+              </label>
+            </div>
 
             <fieldset class="rsvp-choice">
               <legend>Will you be joining us?</legend>
@@ -197,7 +203,7 @@
               <textarea name="notes" rows="4" placeholder="Children, accessibility needs, room notes, or anything else"></textarea>
             </label>
 
-            <p class="rsvp-edit-note">After submitting, you'll get a private edit link. Keep it handy if you want to add flight details or change your response later.</p>
+            <p class="rsvp-edit-note">After submitting, we'll email your private edit link to you from <strong>nishikapratik@gmail.com</strong>. Keep it handy if you want to add flight details or change your response later.</p>
             <div id="rsvp-status" class="rsvp-status" role="status" aria-live="polite"></div>
             <button type="submit" class="btn btn-gold" id="rsvp-submit">Send RSVP</button>
           </div>
