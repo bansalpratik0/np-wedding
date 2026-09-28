@@ -21,7 +21,7 @@ Dark, responsive wedding website for **nishikapratik.com**.
 - Travel guidance for India, the United States, Nigeria, and elsewhere
 - Accommodation and checkout information
 - Searchable FAQs
-- Three-step RSVP prototype
+- Persistent RSVP with private edit links and editable travel details
 - Guest Help Centre structure
 - Wedding Mode announcement preview
 - Social-sharing artwork
@@ -73,6 +73,21 @@ Follow `NETLIFY_DEPLOY.md`.
 
 ## RSVP status
 
-The included RSVP is a UI prototype. It saves responses in the visitor's browser using local storage.
+The RSVP is live-backed through a Netlify Function and Netlify Blobs.
 
-Set `rsvpEndpoint` in `content.js` only after a secure form or database endpoint has been created. Do not publish private guest contact data directly in the static files.
+- One attendance response covers the entire wedding.
+- Guests receive a private edit link after submitting.
+- Returning through that link reloads the same RSVP for edits.
+- Travel, accommodation, dietary requirements, party size, and notes can be updated later.
+- RSVP records persist across deploys.
+
+
+## RSVP email delivery
+
+Guests provide an email address with their RSVP. On first submission, the site emails their private edit link from `nishikapratik@gmail.com`.
+
+Netlify must have this environment variable configured:
+
+- `GMAIL_APP_PASSWORD` — a Google App Password created for `nishikapratik@gmail.com`. Do not use the normal Gmail password.
+
+If email delivery fails, the RSVP remains saved and the private edit link is still shown on-screen.

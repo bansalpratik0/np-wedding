@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Nishika and Pratik monogram</title>
+  <desc id="desc">Gold NP monogram on a deep royal wine background with peacock, floral and Indian architectural details.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="80%">
+      <stop offset="0" stop-color="#760514"/>
+      <stop offset=".55" stop-color="#54040d"/>
+      <stop offset="1" stop-color="#330207"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a681c"/>
+      <stop offset=".23" stop-color="#f1d27a"/>
+      <stop offset=".48" stop-color="#c89231"/>
+      <stop offset=".72" stop-color="#f4d780"/>
+      <stop offset="1" stop-color="#996016"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f8090"/>
+      <stop offset=".55" stop-color="#075464"/>
+      <stop offset="1" stop-color="#03343d"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.3"/></filter>
+    <pattern id="texture" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M10 45 Q45 5 80 45 Q45 85 10 45Z" fill="none" stroke="#fff" stroke-opacity=".028" stroke-width="2"/>
+      <circle cx="45" cy="45" r="4" fill="#fff" fill-opacity=".018"/>
+    </pattern>
+  </defs>
+
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <rect width="1080" height="1350" fill="url(#texture)"/>
+
+  <g transform="translate(225 390)">
+    <text x="0" y="410" font-family="Georgia, 'Times New Roman', serif" font-size="590" font-weight="500" fill="url(#gold)" letter-spacing="-55">NP</text>
+    <path d="M292 20 L292 472" stroke="#f7dd8d" stroke-opacity=".28" stroke-width="3"/>
+  </g>
+
+  <!-- stylized peacock -->
+  <g transform="translate(775 270)">
+    <path d="M53 65 C33 97 35 135 64 155 C93 176 114 152 103 123 C96 105 82 93 88 76 C93 61 106 52 118 48 C100 40 70 41 53 65Z" fill="url(#teal)"/>
+    <circle cx="92" cy="62" r="5" fill="#fff"/>
+    <circle cx="94" cy="62" r="2" fill="#111"/>
+    <path d="M112 67 l20 6 -20 7" fill="#d9ae47"/>
+    <path d="M72 41 q20-24 44 0 q-20-8-44 0Z" fill="#0a6977"/>
+    <path d="M79 34 l-9-18 M88 33 l1-23 M97 35 l12-17" stroke="#0b7280" stroke-width="4" stroke-linecap="round"/>
+
+    <path d="M94 148 C151 185 185 278 162 377 C143 459 104 507 55 520 C93 441 84 338 64 273 C47 217 55 177 94 148Z" fill="#0d644d"/>
+    <g fill="none" stroke-width="5">
+      <path d="M87 205 q56 35 70 93" stroke="#c99b37"/>
+      <path d="M79 242 q63 36 72 102" stroke="#c99b37"/>
+      <path d="M70 282 q61 30 69 96" stroke="#c99b37"/>
+      <path d="M64 324 q54 26 58 88" stroke="#c99b37"/>
+      <path d="M58 366 q43 20 42 68" stroke="#c99b37"/>
+    </g>
+    <g>
+      <g transform="translate(115 235)"><ellipse rx="18" ry="28" fill="#d7ad47"/><ellipse rx="10" ry="17" fill="#0b777d"/><circle r="6" fill="#19313a"/></g>
+      <g transform="translate(125 290)"><ellipse rx="18" ry="28" fill="#d7ad47"/><ellipse rx="10" ry="17" fill="#0b777d"/><circle r="6" fill="#19313a"/></g>
+      <g transform="translate(118 348)"><ellipse rx="18" ry="28" fill="#d7ad47"/><ellipse rx="10" ry="17" fill="#0b777d"/><circle r="6" fill="#19313a"/></g>
+      <g transform="translate(103 404)"><ellipse rx="18" ry="28" fill="#d7ad47"/><ellipse rx="10" ry="17" fill="#0b777d"/><circle r="6" fill="#19313a"/></g>
+      <g transform="translate(84 454)"><ellipse rx="17" ry="26" fill="#d7ad47"/><ellipse rx="9" ry="15" fill="#0b777d"/><circle r="5" fill="#19313a"/></g>
+    </g>
+  </g>
+
+  <!-- architectural chhatri -->
+  <g transform="translate(210 710)">
+    <path d="M36 135 h150 v85 h-150z" fill="#f2e8d2"/>
+    <path d="M20 135 q91-122 182 0Z" fill="#f6ecda"/>
+    <path d="M108 42 v-32 M95 30 h26" stroke="#c99b37" stroke-width="4"/>
+    <path d="M70 220 v-42 q0-44 41-44 q41 0 41 44 v42" fill="#6a0713"/>
+    <path d="M32 220 h158" stroke="#9c7b37" stroke-width="5"/>
+    <g stroke="#c7b99d" stroke-width="4">
+      <path d="M50 135 v85 M82 135 v85 M142 135 v85 M174 135 v85"/>
+    </g>
+  </g>
+
+  <!-- leaves around chhatri -->
+  <g fill="#4d9d80" opacity=".95">
+    <path d="M220 755 q-42-62-70-18 q46-9 70 18Z"/>
+    <path d="M250 730 q-14-70-54-39 q42 12 54 39Z"/>
+    <path d="M366 750 q38-60 70-16 q-45-7-70 16Z"/>
+    <path d="M345 720 q18-64 55-31 q-39 8-55 31Z"/>
+  </g>
+
+  <!-- floral cluster -->
+  <g transform="translate(505 725)">
+    <path d="M0 160 C60 90 76 36 83 0" fill="none" stroke="#5f935f" stroke-width="9"/>
+    <path d="M43 156 C36 116 28 74 17 46" fill="none" stroke="#5f935f" stroke-width="7"/>
+    <g fill="#f08aa1" stroke="#ffd0d9" stroke-width="3">
+      <circle cx="79" cy="22" r="18"/><circle cx="54" cy="65" r="21"/><circle cx="31" cy="111" r="18"/><circle cx="87" cy="112" r="23"/><circle cx="50" cy="153" r="20"/>
+    </g>
+    <g fill="#f8bdcb">
+      <circle cx="77" cy="16" r="8"/><circle cx="50" cy="60" r="9"/><circle cx="27" cy="106" r="8"/><circle cx="84" cy="107" r="10"/><circle cx="46" cy="148" r="9"/>
+    </g>
+    <g fill="#3f8a56">
+      <path d="M7 153 q-42-18-39-53 q39 13 39 53Z"/>
+      <path d="M55 156 q38-29 49 1 q-33 20-49-1Z"/>
+    </g>
+  </g>
+</svg>

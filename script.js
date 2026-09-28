@@ -4,18 +4,51 @@
   const $$ = (q,p=document)=>[...p.querySelectorAll(q)];
   const storage={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 
+
+  const splash=$("#wedding-splash");
+  const splashSeen=sessionStorage.getItem("np-splash-entered")==="1";
+  if(splashSeen){
+    splash?.setAttribute("hidden","");
+    document.body.classList.remove("splash-open");
+  }else{
+    requestAnimationFrame(()=>splash?.classList.add("is-ready"));
+    splash?.focus({preventScroll:true});
+  }
+  const enterSite=()=>{
+    if(!splash || splash.hasAttribute("hidden")) return;
+    sessionStorage.setItem("np-splash-entered","1");
+    splash.classList.add("is-leaving");
+    document.body.classList.remove("splash-open");
+    setTimeout(()=>splash.setAttribute("hidden",""),500);
+  };
+  splash?.addEventListener("click",enterSite);
+  splash?.addEventListener("touchend",e=>{e.preventDefault();enterSite();},{passive:false});
+  splash?.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "||e.key==="Escape"){e.preventDefault();enterSite();}});
+
   const menu=$(".menu-toggle"),nav=$("#nav");
   menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});
   $$("#nav a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false")}));
 
   const target=new Date(C.weddingDate).getTime();
-  function tick(){let d=Math.max(0,target-Date.now());const days=Math.floor(d/86400000);d-=days*86400000;const h=Math.floor(d/3600000);d-=h*3600000;const m=Math.floor(d/60000);$("#days").textContent=String(days).padStart(3,"0");$("#hours").textContent=String(h).padStart(2,"0");$("#minutes").textContent=String(m).padStart(2,"0");}
-  tick();setInterval(tick,30000);
+  function tick(){
+    let d=Math.max(0,target-Date.now());
+    const days=Math.floor(d/86400000);d-=days*86400000;
+    const h=Math.floor(d/3600000);d-=h*3600000;
+    const m=Math.floor(d/60000);d-=m*60000;
+    const s=Math.floor(d/1000);
+    $("#days").textContent=String(days).padStart(3,"0");
+    $("#hours").textContent=String(h).padStart(2,"0");
+    $("#minutes").textContent=String(m).padStart(2,"0");
+    $("#seconds").textContent=String(s).padStart(2,"0");
+  }
+  tick();setInterval(tick,1000);
 
   const eventList=$("#event-list");
   C.events.forEach(e=>{
-    const card=document.createElement("article");card.className="event-card reveal";card.style.setProperty("--accent",e.accent);
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong><span>${e.venue}</span><div class="mini-palette">${e.palette.map(c=>`<i style="background:${c}"></i>`).join("")}</div></div>`;
+    const card=document.createElement("article");
+    card.className="event-card reveal";
+    const venue = e.venue ? `<span>${e.venue}</span>` : "";
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
     eventList.appendChild(card);
   });
 
@@ -48,15 +81,163 @@
   }
   faqSearch.addEventListener("input",renderFaqs);renderFaqs();
 
-  const attendance=$("#attendance-options");
-  C.events.forEach((e,i)=>attendance.insertAdjacentHTML("beforeend",`<label class="attendance-row"><span><strong>${e.name}</strong><small>${e.date} / ${e.time}</small></span><select name="event_${i}"><option value="yes">Attending</option><option value="no">Not attending</option><option value="unsure">Not sure</option></select></label>`));
+  const form=$("#rsvp-form");
+  const rsvpFields=$("#rsvp-fields");
+  const rsvpSuccess=$("#rsvp-success");
+  const attendingDetails=$("#attending-details");
+  const rsvpStatus=$("#rsvp-status");
+  const rsvpSubmit=$("#rsvp-submit");
+  const rsvpEditLink=$("#rsvp-edit-link");
+  const editNow=$("#edit-rsvp");
+  const copyLink=$("#copy-rsvp-link");
+  const queryToken=new URLSearchParams(location.search).get("rsvp");
+  let rsvpToken=queryToken||storage.get("np-rsvp-token")||"";
 
-  const form=$("#rsvp-form"),steps=$$(".form-step",form);let idx=0;
-  const show=i=>{idx=Math.max(0,Math.min(i,steps.length-1));steps.forEach((s,n)=>s.hidden=n!==idx)};
-  $$(".next",form).forEach(b=>b.addEventListener("click",()=>{const req=$$("input[required]",steps[idx]);if(req.some(x=>!x.reportValidity()))return;show(idx+1)}));
-  $$(".back",form).forEach(b=>b.addEventListener("click",()=>show(idx-1)));
-  form.addEventListener("submit",e=>{e.preventDefault();storage.set("np-rsvp",JSON.stringify(Object.fromEntries(new FormData(form).entries())));steps.forEach(s=>s.hidden=true);$("#rsvp-success").hidden=false});
-  $("#edit-rsvp").addEventListener("click",()=>{$("#rsvp-success").hidden=true;show(0)});
+  const setRsvpStatus=(message,type="")=>{
+    if(!rsvpStatus)return;
+    rsvpStatus.textContent=message;
+    rsvpStatus.dataset.type=type;
+  };
+
+  const updateAttendanceUI=()=>{
+    const value=$('input[name="attending"]:checked',form)?.value||"";
+    if(attendingDetails) attendingDetails.hidden=value!=="yes";
+  };
+
+  $('input[name="attending"]',form).forEach(input=>input.addEventListener("change",updateAttendanceUI));
+
+  const populateRsvp=(data)=>{
+    Object.entries(data||{}).forEach(([name,value])=>{
+      const field=form.elements.namedItem(name);
+      if(!field)return;
+      if(field instanceof RadioNodeList){
+        const radio=form.querySelector(`input[name="${name}"][value="${CSS.escape(String(value))}"]`);
+        if(radio)radio.checked=true;
+      }else if(field.type==="radio"){
+        const radio=form.querySelector(`input[name="${name}"][value="${CSS.escape(String(value))}"]`);
+        if(radio)radio.checked=true;
+      }else{
+        field.value=value??"";
+      }
+    });
+    updateAttendanceUI();
+  };
+
+  const buildEditUrl=(token)=>{
+    const url=new URL(location.href);
+    url.search="";
+    url.hash="";
+    url.searchParams.set("rsvp",token);
+    url.hash="rsvp";
+    return url.toString();
+  };
+
+  const loadExistingRsvp=async()=>{
+    if(!rsvpToken)return;
+    setRsvpStatus("Loading your saved RSVP…");
+    try{
+      const res=await fetch(`/.netlify/functions/rsvp?token=${encodeURIComponent(rsvpToken)}`,{
+        headers:{"accept":"application/json"}
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to load RSVP.");
+      populateRsvp(payload.rsvp);
+      storage.set("np-rsvp-token",rsvpToken);
+      if(rsvpSubmit)rsvpSubmit.textContent="Save changes";
+      setRsvpStatus("Your saved RSVP is loaded. Update anything that has changed.","success");
+    }catch(err){
+      if(queryToken) storage.set("np-rsvp-token","");
+      rsvpToken="";
+      setRsvpStatus(err.message||"We couldn't load that RSVP. You can submit a new response.","error");
+    }
+  };
+
+  form?.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!form.reportValidity())return;
+
+    const data=Object.fromEntries(new FormData(form).entries());
+    const attending=data.attending;
+
+    if(attending!=="yes"){
+      data.partySize="0";
+      data.stayNeeded="";
+      data.arrivalDate="";
+      data.travelNumber="";
+      data.dietary="";
+    }
+
+    if(rsvpToken)data.token=rsvpToken;
+
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=true;
+      rsvpSubmit.textContent=rsvpToken?"Saving…":"Sending…";
+    }
+    setRsvpStatus("Saving your RSVP…");
+
+    try{
+      const res=await fetch("/.netlify/functions/rsvp",{
+        method:"POST",
+        headers:{"content-type":"application/json","accept":"application/json"},
+        body:JSON.stringify(data)
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to save RSVP.");
+
+      rsvpToken=payload.token;
+      storage.set("np-rsvp-token",rsvpToken);
+      const editUrl=buildEditUrl(rsvpToken);
+      if(rsvpEditLink){
+        rsvpEditLink.href=editUrl;
+        rsvpEditLink.textContent=editUrl;
+      }
+      const successCopy=$("#rsvp-success-copy");
+      if(successCopy){
+        const baseMessage=attending==="yes"
+          ?"Your RSVP is saved. You can return later to add or update travel details."
+          :"Your response is saved. If your plans change, use your private edit link to update it.";
+        const emailMessage=payload.emailSent
+          ?" We also emailed your private edit link."
+          :(payload.emailError ? " Your RSVP is saved, but we could not email the link yet—please keep the private link below." : "");
+        successCopy.textContent=baseMessage+emailMessage;
+      }
+      history.replaceState(null,"",editUrl);
+      rsvpFields.hidden=true;
+      rsvpSuccess.hidden=false;
+      setRsvpStatus("");
+    }catch(err){
+      setRsvpStatus(err.message||"Something went wrong. Please try again.","error");
+      if(rsvpSubmit){
+        rsvpSubmit.disabled=false;
+        rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+      }
+    }
+  });
+
+  editNow?.addEventListener("click",()=>{
+    rsvpSuccess.hidden=true;
+    rsvpFields.hidden=false;
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=false;
+      rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+    }
+    form.querySelector('input[name="guestName"]')?.focus();
+  });
+
+  copyLink?.addEventListener("click",async()=>{
+    if(!rsvpToken)return;
+    const editUrl=buildEditUrl(rsvpToken);
+    try{
+      await navigator.clipboard.writeText(editUrl);
+      copyLink.textContent="Edit link copied";
+      setTimeout(()=>copyLink.textContent="Copy edit link",1800);
+    }catch{
+      rsvpEditLink?.focus();
+    }
+  });
+
+  updateAttendanceUI();
+  loadExistingRsvp();
 
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.1});
   $$(".reveal").forEach(x=>obs.observe(x));

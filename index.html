@@ -3,16 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#4b0610" />
+  <meta name="theme-color" content="#062f33" />
   <meta name="description" content="Nishika & Pratik - 28&ndash;29 January 2027, Manesar." />
+  <link rel="icon" type="image/jpeg" href="assets/wedding-logo.jpg?v=3" />
+  <link rel="apple-touch-icon" href="assets/wedding-logo.jpg?v=3" />
   <title>Nishika & Pratik - 28&ndash;29 January 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="splash.css?v=2" />
+  <link rel="stylesheet" href="rsvp.css?v=1" />
 </head>
-<body>
+<body class="splash-open">
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wedding-splash image-splash" id="wedding-splash" role="button" tabindex="0" aria-label="Enter Nishika and Pratik's wedding website">
+    <img class="splash-art" src="data:image/jpeg;base64,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" alt="Nishika and Pratik wedding website entrance" />
+  </div>
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Nishika and Pratik home">
@@ -35,7 +43,7 @@
       <div class="hero-arch" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="monogram-frame">
-          <img src="assets/royal-monogram.webp" alt="Nishika and Pratik wedding monogram with peacock, floral and Indian architectural motifs" />
+          <img src="assets/wedding-logo.jpg" alt="Nishika and Pratik wedding monogram" />
         </div>
         <div class="hero-copy">
           <p class="kicker">A royal celebration of love</p>
@@ -50,6 +58,7 @@
             <div><strong id="days">000</strong><span>Days</span></div>
             <div><strong id="hours">00</strong><span>Hours</span></div>
             <div><strong id="minutes">00</strong><span>Minutes</span></div>
+            <div><strong id="seconds">00</strong><span>Seconds</span></div>
           </div>
         </div>
       </div>
@@ -62,7 +71,7 @@
       <div class="section-shell intro-grid reveal">
         <div class="section-heading">
           <span class="eyebrow">You are invited</span>
-          <h2>Two days, five worlds,<br>one unforgettable celebration.</h2>
+          <h2>Two days, six moments,<br>one unforgettable celebration.</h2>
         </div>
         <div class="intro-copy">
           <p>We are bringing together everything we love about an Indian wedding: colour, music, family, ritual, drama and a little royal excess.</p>
@@ -77,8 +86,8 @@
       <div class="section-shell">
         <div class="section-heading light reveal">
           <span class="eyebrow">The wedding programme</span>
-          <h2>Five celebrations.<br>Each with its own mood.</h2>
-          <p>From a sunlit beginning to an evening mehfil, the wedding unfolds as a sequence of distinct experiences.</p>
+          <h2>Six celebrations.<br>One unfolding story.</h2>
+          <p>From a sunlit beginning to the sacred seven, the wedding unfolds as a sequence of distinct experiences.</p>
         </div>
         <div id="event-list" class="event-list"></div>
       </div>
@@ -89,7 +98,7 @@
         <div class="section-heading reveal">
           <span class="eyebrow">A guest guide to colour</span>
           <h2>Dress for the mood,<br>not a uniform.</h2>
-          <p>Each celebration has a deliberately different colour story. Use these tones as inspiration rather than exact shade matching.</p>
+          <p>Each celebration has its own colour story. Use these tones as inspiration rather than exact shade matching.</p>
         </div>
         <div id="palette-grid" class="palette-grid"></div>
       </div>
@@ -130,34 +139,84 @@
         <div class="section-heading light reveal">
           <span class="eyebrow">RSVP</span>
           <h2>Save your place<br>in our story.</h2>
-          <p>Tell us which celebrations you are joining and anything we should know to make your stay seamless.</p>
+          <p>One response covers the entire wedding. You can return later using your private edit link to add or update travel details.</p>
         </div>
-        <form id="rsvp-form" class="rsvp-card reveal">
-          <div class="form-step" data-step="0">
-            <p class="step-label">01 &middot; Your invitation</p>
-            <label>Full name<input name="guestName" required placeholder="Enter your full name"></label>
-            <label>Invitation code <span>optional in preview</span><input name="inviteCode" placeholder="e.g. NP2027"></label>
-            <button type="button" class="btn btn-gold next">Continue</button>
-          </div>
-          <div class="form-step" data-step="1" hidden>
-            <p class="step-label">02 &middot; Your celebrations</p>
-            <div id="attendance-options"></div>
-            <div class="form-actions"><button type="button" class="text-btn back">Back</button><button type="button" class="btn btn-gold next">Continue</button></div>
-          </div>
-          <div class="form-step" data-step="2" hidden>
-            <p class="step-label">03 &middot; Travel details</p>
+        <form id="rsvp-form" class="rsvp-card reveal" novalidate>
+          <div id="rsvp-fields">
+            <p class="step-label">Your RSVP</p>
+
             <div class="form-grid">
-              <label>Dietary preference<select name="diet"><option>Vegetarian</option><option>Jain</option><option>Vegan</option><option>No preference</option><option>Other</option></select></label>
-              <label>Accommodation needed?<select name="stayNeeded"><option value="yes">Yes</option><option value="no">No</option><option value="unsure">Not sure yet</option></select></label>
-              <label>Arrival date<div class="date-wrap"><input type="date" name="arrivalDate"></div></label>
-              <label>Flight / train number<input name="travelNumber" placeholder="Optional"></label>
+              <label>
+                Full name
+                <input name="guestName" required autocomplete="name" placeholder="Enter your full name">
+              </label>
+              <label>
+                Email address
+                <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
+              </label>
             </div>
-            <label>Anything we should know?<textarea name="notes" rows="4" placeholder="Allergies, accessibility, children, or other notes"></textarea></label>
-            <div class="form-actions"><button type="button" class="text-btn back">Back</button><button type="submit" class="btn btn-gold">Send RSVP</button></div>
+
+            <fieldset class="rsvp-choice">
+              <legend>Will you be joining us?</legend>
+              <div class="choice-row">
+                <label class="choice-card"><input type="radio" name="attending" value="yes" required><span>Yes, we'll be there</span></label>
+                <label class="choice-card"><input type="radio" name="attending" value="no" required><span>Sadly, we can't make it</span></label>
+              </div>
+            </fieldset>
+
+            <div id="attending-details" hidden>
+              <div class="form-grid">
+                <label>
+                  Total guests in your party <span>including you</span>
+                  <input type="number" name="partySize" min="1" max="20" value="1" inputmode="numeric">
+                </label>
+
+                <label>
+                  Accommodation needed?
+                  <select name="stayNeeded">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="unsure">Not sure yet</option>
+                  </select>
+                </label>
+
+                <label>
+                  Arrival date
+                  <div class="date-wrap"><input type="date" name="arrivalDate"></div>
+                </label>
+
+                <label>
+                  Flight / train number
+                  <input name="travelNumber" placeholder="You can add this later">
+                </label>
+              </div>
+
+              <label>
+                Dietary requirements
+                <textarea name="dietary" rows="3" placeholder="Please tell us any dietary requirements, allergies, Jain preferences, etc."></textarea>
+              </label>
+            </div>
+
+            <label>
+              Anything else we should know?
+              <textarea name="notes" rows="4" placeholder="Children, accessibility needs, room notes, or anything else"></textarea>
+            </label>
+
+            <p class="rsvp-edit-note">After submitting, we'll email your private edit link to you from <strong>nishikapratik@gmail.com</strong>. Keep it handy if you want to add flight details or change your response later.</p>
+            <div id="rsvp-status" class="rsvp-status" role="status" aria-live="polite"></div>
+            <button type="submit" class="btn btn-gold" id="rsvp-submit">Send RSVP</button>
           </div>
+
           <div id="rsvp-success" class="form-success" hidden>
-            <div class="success-seal">NP</div><h3>Shukriya</h3><p>Your response has been saved in this preview.</p>
-            <button type="button" class="text-btn" id="edit-rsvp">Edit response</button>
+            <div class="success-seal">NP</div>
+            <h3>Shukriya</h3>
+            <p id="rsvp-success-copy">Your RSVP has been saved.</p>
+            <a id="rsvp-edit-link" class="rsvp-private-link" href="#rsvp">Your private edit link</a>
+            <div class="form-actions rsvp-success-actions">
+              <button type="button" class="text-btn" id="copy-rsvp-link">Copy edit link</button>
+              <button type="button" class="text-btn" id="edit-rsvp">Edit response now</button>
+            </div>
           </div>
         </form>
       </div>
@@ -173,5 +232,6 @@
 
   <script src="content.js"></script>
   <script src="script.js"></script>
+  <!-- netlify-deploy-trigger-2026-09-27 -->
 </body>
 </html>

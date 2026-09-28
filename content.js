@@ -7,9 +7,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "12:00 PM",
       venue: "Anarkali Bagh",
-      description: "The auspicious beginning of our wedding celebrations.",
-      accent: "#cfa44c",
-      palette: ["#f0d9b5","#cfa44c","#0a5b5c","#c73979"]
+      description: "The auspicious beginning of our wedding celebrations."
     },
     {
       number: "02",
@@ -17,9 +15,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "7:00 PM",
       venue: "Haveli Bagh",
-      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama.",
-      accent: "#23375f",
-      palette: ["#111111","#17233c","#0d6b4f","#8d1d43","#5f2b65","#b7bac2"]
+      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama."
     },
     {
       number: "03",
@@ -27,9 +23,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "11:00 AM",
       venue: "Anarkali Bagh",
-      description: "Pastels, sunshine and flowers come together for a bright daytime celebration.",
-      accent: "#e3bd42",
-      palette: ["#e8b5b7","#efaa80","#f4cf59","#a9c88c","#a8c8df","#b9a7d6"]
+      description: "Pastels, sunshine and flowers come together for a bright daytime celebration."
     },
     {
       number: "04",
@@ -37,9 +31,7 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "5:30 PM",
       venue: "Heritage Main Porch",
-      description: "A grand royal arrival marking the beginning of the wedding evening.",
-      accent: "#c73979",
-      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#6d2f91","#c99b37"]
+      description: "A grand royal arrival that opens the wedding evening."
     },
     {
       number: "05",
@@ -47,9 +39,15 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "7:00 PM",
       venue: "Sher Bagh",
-      description: "Rich Indian colour, gold accents and the final royal celebration of the night.",
-      accent: "#6d2f91",
-      palette: ["#cf0a6a","#ad0057","#dc4927","#ef9b00","#e9a900","#6d2f91","#c99b37"]
+      description: "An evening of celebration, music and rich Indian colour."
+    },
+    {
+      number: "06",
+      name: "The Sacred Seven",
+      date: "Friday  /  29 January",
+      time: "10:30 PM",
+      venue: "Haveli Bagh",
+      description: "Musical pheras - seven sacred circles, set to music."
     }
   ],
   palettes: [
@@ -68,8 +66,8 @@ window.WEDDING_CONTENT = {
       mood: "Dark, glamorous & sparkling",
       description: "Rich evening tones with metallic accents and depth.",
       colors: [
-        ["Black","#101010"],["Midnight","#17233c"],["Navy","#263961"],
-        ["Emerald","#0d6b4f"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
+        ["Black","#101010"],["Midnight","#243B73"],["Navy","#263961"],
+        ["Emerald","#00A36C"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
       ],
       note: "Evening festive or cocktail wear, rich solids, sequins and metallic accents."
     },
@@ -81,7 +79,7 @@ window.WEDDING_CONTENT = {
         ["Rani Pink","#cf0a6a"],["Magenta","#ad0057"],["Vermilion","#dc4927"],
         ["Saffron","#ef9b00"],["Marigold","#e9a900"],["Royal Purple","#6d2f91"],["Gold","#c99b37"]
       ],
-      note: "Traditional Indian formalwear in saturated festive colours with gold accents."
+      note: "For the Royal Wedding events, these colours can appear as accents or details through embroidery, dupattas, jackets and accessories. Wearing a full base shade from the palette is equally welcome."
     }
   ],
   travel: {
@@ -112,7 +110,7 @@ window.WEDDING_CONTENT = {
     }
   },
   faqs: [
-    ["What happens at each celebration?","The wedding is spread across five distinct functions. Exact timings and venues are listed in the Celebrations section."],
+    ["What happens at each celebration?","The wedding is spread across six functions over two days. Exact timings and available venue details are listed in the Celebrations section."],
     ["Do I need to wear Indian clothing?","Indian clothing is encouraged but not mandatory. The colour guide is intended as inspiration, not a uniform."],
     ["Do I need to match the palette exactly?","No. The palette is a shopping guide and exact shade matching is not required."],
     ["Which airport should I fly into?","Indira Gandhi International Airport in Delhi is the recommended airport for Manesar."],
@@ -120,6 +118,6 @@ window.WEDDING_CONTENT = {
     ["Where are guests staying?","The celebrations are hosted at Heritage Village Resort & Spa, Manesar. Room-allocation details will be shared with confirmed guests."],
     ["When is checkout?","Checkout is 30 January 2027."],
     ["Will vegetarian food be available?","Yes. You can also share Jain, vegan, allergy or other dietary requirements in your RSVP."],
-    ["Can I change my RSVP later?","The final guest system can allow responses to be reopened using your invitation code."]
+    ["Can I change my RSVP later?","Yes. After you submit, you will receive a private edit link. Use it later to update your attendance, travel details, dietary requirements, accommodation needs, or other notes."]
   ]
 };
