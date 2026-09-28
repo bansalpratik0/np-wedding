@@ -4,6 +4,26 @@
   const $$ = (q,p=document)=>[...p.querySelectorAll(q)];
   const storage={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 
+
+  const splash=$("#wedding-splash"), splashEnter=$("#splash-enter");
+  const splashSeen=storage.get("np-splash-entered")==="1";
+  if(splashSeen){
+    splash?.setAttribute("hidden","");
+    document.body.classList.remove("splash-open");
+  }else{
+    requestAnimationFrame(()=>splash?.classList.add("is-ready"));
+    splashEnter?.focus({preventScroll:true});
+  }
+  const enterSite=()=>{
+    if(!splash || splash.hasAttribute("hidden")) return;
+    storage.set("np-splash-entered","1");
+    splash.classList.add("is-leaving");
+    document.body.classList.remove("splash-open");
+    setTimeout(()=>splash.setAttribute("hidden",""),700);
+  };
+  splashEnter?.addEventListener("click",enterSite);
+  splash?.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key==="Escape") enterSite();});
+
   const menu=$(".menu-toggle"),nav=$("#nav");
   menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});
   $$("#nav a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false")}));
