@@ -66,13 +66,6 @@
       ${k==="usa"?renderChecklist():""}`;
     if(k!=="stay")storage.set("np-origin",k);
     if(k==="usa"){
-      panel.querySelectorAll("input[data-check]").forEach(box=>box.addEventListener("change",()=>{
-        if(box.checked)completedChecklist.add(box.dataset.check);else completedChecklist.delete(box.dataset.check);
-        storage.set(checklistKey,JSON.stringify([...completedChecklist]));
-        const details=panel.querySelector(".first-time-checklist");
-        const wasOpen=details?.open;
-        if(details){const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();details.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=wasOpen; bindChecklist();}
-      }));
       bindChecklist();
     }
   }
