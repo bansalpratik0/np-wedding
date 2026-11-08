@@ -42,24 +42,77 @@
   });
 
   const tabs=$("#travel-tabs"),panel=$("#travel-panel");
-  const labels={india:"From India",usa:"From USA",nigeria:"From Nigeria",elsewhere:"Elsewhere",stay:"Accommodation"};
-  function renderTravel(k){
-    const x=C.travel[k];$$(".travel-tab").forEach(b=>b.classList.toggle("active",b.dataset.key===k));
-    panel.innerHTML=`<span class="eyebrow">Wedding concierge</span><h3>${x.label}</h3><p class="lead">${x.intro}</p><div class="travel-points">${x.points.map(([a,b])=>`<div class="travel-point"><strong>${a}</strong><span>${b}</span></div>`).join("")}</div>`;
-    if(k!=="stay") storage.set("np-origin",k);
+  const labels={india:"From India",usa:"From USA",nigeria:"From Nigeria",elsewhere:"Elsewhere",stay:"Your Stay"};
+  const esc=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  const checklistKey="np-india-checklist-v1";
+  let completedChecklist=new Set();
+  try { const stored=JSON.parse(storage.get(checklistKey)||"[]"); if(Array.isArray(stored)) completedChecklist=new Set(stored.filter(x=>typeof x==="string")); } catch {}
+  function renderChecklist(){
+    const items=C.firstTimeChecklist.flatMap((group,gi)=>group.items.map((item,ii)=>({id:gi+"-"+ii,item})));
+    const checked=items.filter(x=>completedChecklist.has(x.id)).length;
+    return `<details class="first-time-checklist"><summary><span class="checklist-symbol" aria-hidden="true">✦</span><span><strong>First-Time India Checklist</strong><small>A practical, optional prep guide · ${checked} of ${items.length} complete</small></span><span class="checklist-chevron" aria-hidden="true">⌄</span></summary>
+      <div class="checklist-body"><p>Tick items off as you prepare. Your selections are saved on this device.</p>
+      <div class="checklist-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${items.length}" aria-valuenow="${checked}" aria-label="Travel preparation completed"><span style="width:${checked/items.length*100}%"></span></div>
+      ${C.firstTimeChecklist.map((group,gi)=>`<div class="checklist-group"><h4>${esc(group.title)}</h4>${group.items.map(([label,hint],ii)=>`<label class="checklist-item"><input type="checkbox" data-check="${gi}-${ii}" ${completedChecklist.has(gi+"-"+ii)?"checked":""}><span>${esc(label)}<small>${esc(hint)}</small></span></label>`).join("")}</div>`).join("")}
+      <div class="checklist-links"><a href="https://indianvisaonline.gov.in/evisa/" target="_blank" rel="noopener noreferrer">Official India e-Visa ↗</a><a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener noreferrer">e-Arrival Card ↗</a></div>
+      <button class="checklist-reset" type="button">Reset checklist</button></div></details>`;
   }
-  Object.keys(labels).forEach(k=>{const b=document.createElement("button");b.type="button";b.className="travel-tab";b.dataset.key=k;b.textContent=labels[k];b.addEventListener("click",()=>renderTravel(k));tabs.appendChild(b)});
+  function renderTravel(k){
+    if(!C.travel[k])k="india";
+    const x=C.travel[k];
+    $$(".travel-tab").forEach(b=>{b.classList.toggle("active",b.dataset.key===k);b.setAttribute("aria-selected",String(b.dataset.key===k));});
+    panel.innerHTML=`<span class="eyebrow">Wedding concierge</span><h3>${esc(x.label)}</h3><p class="lead">${esc(x.intro)}</p>
+      <div class="travel-guide-sections">${x.sections.map(([heading,items])=>`<section class="travel-guide-section"><h4>${esc(heading)}</h4><ul>${items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></section>`).join("")}</div>
+      ${k==="usa"?renderChecklist():""}`;
+    if(k!=="stay")storage.set("np-origin",k);
+    if(k==="usa"){
+      panel.querySelectorAll("input[data-check]").forEach(box=>box.addEventListener("change",()=>{
+        if(box.checked)completedChecklist.add(box.dataset.check);else completedChecklist.delete(box.dataset.check);
+        storage.set(checklistKey,JSON.stringify([...completedChecklist]));
+        const details=panel.querySelector(".first-time-checklist");
+        const wasOpen=details?.open;
+        if(details){const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();details.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=wasOpen; bindChecklist();}
+      }));
+      bindChecklist();
+    }
+  }
+  function bindChecklist(){
+    panel.querySelectorAll(".first-time-checklist input[data-check]").forEach(box=>{box.onchange=()=>{
+      if(box.checked)completedChecklist.add(box.dataset.check);else completedChecklist.delete(box.dataset.check);
+      storage.set(checklistKey,JSON.stringify([...completedChecklist]));
+      const old=panel.querySelector(".first-time-checklist"),wasOpen=old.open;
+      const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();
+      old.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=wasOpen;
+      bindChecklist();
+    };});
+    const reset=panel.querySelector(".checklist-reset");
+    if(reset)reset.onclick=()=>{completedChecklist.clear();storage.set(checklistKey,"[]");const old=panel.querySelector(".first-time-checklist");const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();old.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=true;bindChecklist();};
+  }
+  Object.keys(labels).forEach(k=>{const b=document.createElement("button");b.type="button";b.className="travel-tab";b.dataset.key=k;b.setAttribute("role","tab");b.textContent=labels[k];b.addEventListener("click",()=>renderTravel(k));tabs.appendChild(b)});
+  tabs.setAttribute("role","tablist");
   renderTravel(storage.get("np-origin")||"india");
 
-  const faqList=$("#faq-list"),faqSearch=$("#faq-search");
+  const faqList=$("#faq-list"),faqSearch=$("#faq-search"),faqFilters=$("#faq-filters");
+  const faqCategories=["All Questions","Wedding Events","Accommodation","Guest Logistics","RSVP & Photos"];
+  let faqCategory="All Questions";
   function renderFaqs(){
     const q=faqSearch.value.trim().toLowerCase();faqList.innerHTML="";
-    C.faqs.filter(x=>!q||`${x[0]} ${x[1]}`.toLowerCase().includes(q)).forEach(([qst,ans])=>{
+    const matches=C.faqs.filter(([cat,question,answer])=>(faqCategory==="All Questions"||cat===faqCategory)&&(!q||(`${question} ${answer}`).toLowerCase().includes(q)));
+    if(!matches.length){faqList.innerHTML='<p class="faq-empty">No matching questions. Try another search.</p>';return;}
+    matches.forEach(([cat,question,answer])=>{
       const x=document.createElement("article");x.className="faq-item reveal visible";
-      x.innerHTML=`<button class="faq-q" type="button" aria-expanded="false"><b>${qst}</b><span class="faq-plus">+</span></button><div class="faq-a" hidden>${ans}</div>`;
-      const b=$(".faq-q",x),a=$(".faq-a",x);b.addEventListener("click",()=>{const open=a.hidden;a.hidden=!open;b.setAttribute("aria-expanded",String(open));$(".faq-plus",x).textContent=open?"−":"+"});faqList.appendChild(x);
+      x.innerHTML=`<button class="faq-q" type="button" aria-expanded="false"><b>${esc(question)}</b><span class="faq-plus" aria-hidden="true">+</span></button><div class="faq-a" hidden>${esc(answer)}</div>`;
+      const b=$(".faq-q",x),a=$(".faq-a",x);
+      b.addEventListener("click",()=>{const open=a.hidden;a.hidden=!open;b.setAttribute("aria-expanded",String(open));$(".faq-plus",x).textContent=open?"−":"+";});
+      faqList.appendChild(x);
     });
   }
+  faqCategories.forEach(cat=>{
+    const b=document.createElement("button");b.type="button";b.className="faq-filter";b.textContent=cat;
+    b.addEventListener("click",()=>{faqCategory=cat;$$(".faq-filter").forEach(x=>x.classList.toggle("active",x===b));renderFaqs();});
+    if(cat===faqCategory)b.classList.add("active");
+    faqFilters.appendChild(b);
+  });
   faqSearch.addEventListener("input",renderFaqs);renderFaqs();
 
   const RSVP_API="https://rkglbozacxbiojvnmqyb.supabase.co/functions/v1/wedding-rsvp";
