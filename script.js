@@ -26,9 +26,10 @@
   const eventList=$("#event-list");
   C.events.forEach(e=>{
     const card=document.createElement("article");
-    card.className="event-card reveal";
+    card.className="event-card reveal"+(e.side?" event-card-sided":"");
     const venue = e.venue ? `<span>${e.venue}</span>` : "";
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main"><h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    const side = e.side ? `<span class="event-side">${e.side}</span>` : "";
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
     eventList.appendChild(card);
   });
 
