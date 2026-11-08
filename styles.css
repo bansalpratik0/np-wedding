@@ -955,3 +955,16 @@ body.splash-open{
   .splash-divider{margin:15px auto 13px}
   .splash-enter{margin-top:19px}
 }
+
+
+/* Distinct groom-side and bride-side moments, plus the future photo gallery */
+.event-card-sided { border-left:3px solid rgba(239,214,146,.7) !important; }
+.event-card-sided .event-side { display:inline-block; margin:0 0 8px; padding:5px 10px; border:1px solid rgba(239,214,146,.45); border-radius:100px; color:var(--gold-light); font-size:.67rem; font-weight:600; letter-spacing:.13em; text-transform:uppercase; }
+.event-card-sided:has(.event-side):nth-child(5) { border-left-color:rgba(216,165,188,.85) !important; }
+.event-card-sided:nth-child(5) .event-side { border-color:rgba(216,165,188,.65); color:#f5d7e4; }
+.photos { text-align:center; }
+.photos-inner { position:relative; z-index:2; max-width:850px; }
+.photos h2 { font-family:"Italiana",serif; font-size:clamp(3rem,7vw,5.5rem); font-weight:400; line-height:1.1; margin:20px 0; }
+.photos p { max-width:630px; margin:0 auto 30px; font-size:1.12rem; line-height:1.8; color:rgba(255,255,255,.77); }
+.photos-coming-soon { display:inline-flex; gap:12px; align-items:center; padding:15px 24px; border:1px solid rgba(239,214,146,.52); border-radius:100px; color:var(--gold-light); font-size:.81rem; letter-spacing:.04em; }
+@media(max-width:620px){ .photos-coming-soon {border-radius:18px;line-height:1.55;} }
