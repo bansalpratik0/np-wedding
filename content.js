@@ -6,12 +6,12 @@ window.WEDDING_CONTENT = {
       name: "Shubh Arambh",
       date: "Thursday  /  28 January",
       time: "12:00 PM",
-      venue: "Anarkali Bagh",
+      venue: "Utsav",
       description: "The auspicious beginning of our wedding celebrations."
     },
     {
       number: "02",
-      name: "Starry Nights",
+      name: "Jashn Royale",
       date: "Thursday  /  28 January",
       time: "7:00 PM",
       venue: "Haveli Bagh",
@@ -19,7 +19,7 @@ window.WEDDING_CONTENT = {
     },
     {
       number: "03",
-      name: "Phoolon ki Holi",
+      name: "Phoolon ki Haldi",
       date: "Friday  /  29 January",
       time: "11:00 AM",
       venue: "Anarkali Bagh",
@@ -31,28 +31,38 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "5:30 PM",
       venue: "Heritage Main Porch",
-      description: "A grand royal arrival that opens the wedding evening."
+      side: "Groom’s side",
+      description: "The groom’s procession begins with a grand royal arrival."
     },
     {
       number: "05",
-      name: "The Royal Mehefil",
+      name: "Baraat Welcoming",
+      date: "Friday  /  29 January",
+      time: "6:30 PM",
+      venue: "Sher Bagh",
+      side: "Bride’s side",
+      description: "The bride’s family welcomes the baraat as both families come together."
+    },
+    {
+      number: "06",
+      name: "The Royal Union",
       date: "Friday  /  29 January",
       time: "7:00 PM",
       venue: "Sher Bagh",
       description: "An evening of celebration, music and rich Indian colour."
     },
     {
-      number: "06",
+      number: "07",
       name: "The Sacred Seven",
       date: "Friday  /  29 January",
       time: "10:30 PM",
-      venue: "Haveli Bagh",
+      venue: "",
       description: "Musical pheras - seven sacred circles, set to music."
     }
   ],
   palettes: [
     {
-      title: "Phoolon ki Holi",
+      title: "Phoolon ki Haldi",
       mood: "Pastels & sunshine",
       description: "Light, cheerful colour with a garden-like softness.",
       colors: [
@@ -62,7 +72,7 @@ window.WEDDING_CONTENT = {
       note: "Light Indian wear, breezy fabrics, soft florals and cheerful daytime styling."
     },
     {
-      title: "Starry Nights",
+      title: "Jashn Royale",
       mood: "Dark, glamorous & sparkling",
       description: "Rich evening tones with metallic accents and depth.",
       colors: [
