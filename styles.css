@@ -1024,3 +1024,8 @@ body.splash-open{
   .hero-actions .hero-explore{min-height:47px}
 }
 @media(max-width:620px){.nav{inset:66px 0 auto;height:calc(100dvh - 66px);max-height:calc(100dvh - 66px)}.hero-actions .btn{width:100%}}
+
+/* Palette guidance for events without a designated colour story */
+.palette-free-note{position:relative;z-index:2;margin:26px 0 0;padding:17px 22px;border-left:3px solid var(--gold);background:rgba(6,47,51,.055);color:var(--ink);font-size:.93rem;line-height:1.7}
+.palette-free-note strong{display:block;margin-bottom:4px;color:var(--peacock);font-family:"Cinzel",serif;font-size:.76rem;letter-spacing:.08em}
+@media(max-width:620px){.palette-free-note{margin-top:21px;padding:16px 18px;font-size:.88rem}}
