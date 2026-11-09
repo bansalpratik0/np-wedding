@@ -230,8 +230,686 @@
     <p class="footer-small">Checkout &middot; 30 January 2027</p>
   </footer>
 
-  <script src="content.js?v=20261109-3"></script>
-  <script src="script.js?v=20261109-3"></script>
+  <!-- Self-contained script: wedding data and app must load atomically. -->
+  <script>
+window.WEDDING_CONTENT = {
+  weddingDate: "2027-01-28T12:00:00+05:30",
+  events: [
+    {
+      number: "01",
+      name: "Shubh Arambh",
+      date: "Thursday  /  28 January",
+      time: "12:00 PM",
+      venue: "Utsav",
+      description: "A warm welcome, vibrant Mehendi, and the beginning of celebrations."
+    },
+    {
+      number: "02",
+      name: "Jashn Royale",
+      date: "Thursday  /  28 January",
+      time: "7:00 PM",
+      venue: "Haveli Bagh",
+      description: "An evening of dance, dazzle & unforgettable moments!"
+    },
+    {
+      number: "03",
+      name: "Phoolon ki Haldi",
+      date: "Friday  /  29 January",
+      time: "11:00 AM",
+      venue: "Anarkali Bagh",
+      description: "Where flowers bloom and celebrations glow!"
+    },
+    {
+      number: "04",
+      name: "The Royal Roll-In",
+      date: "Friday  /  29 January",
+      time: "5:00 PM",
+      venue: "Heritage Main Porch",
+      side: "Groom’s side",
+      theme: "The Royal Soirée",
+      description: "To Love, To Togetherness, To Forever"
+    },
+    {
+      number: "05",
+      name: "Baraat Welcoming",
+      date: "Friday  /  29 January",
+      time: "6:30 PM",
+      venue: "Sher Bagh",
+      side: "Bride’s side",
+      description: "The bride’s family welcomes the baraat as both families come together."
+    },
+    {
+      number: "06",
+      name: "The Royal Union",
+      date: "Friday  /  29 January",
+      time: "7:00 PM",
+      venue: "Sher Bagh",
+      theme: "The Royal Soirée",
+      description: "To Love, To Togetherness, To Forever"
+    },
+    {
+      number: "07",
+      name: "The Sacred Seven",
+      date: "Friday  /  29 January",
+      time: "10:30 PM",
+      venue: "",
+      description: "Musical pheras - seven sacred circles, set to music."
+    }
+  ],
+  palettes: [
+    {
+      title: "Phoolon ki Haldi",
+      mood: "Pastels & sunshine",
+      description: "Light, cheerful colour with a garden-like softness.",
+      colors: [
+        ["Blush","#e8b5b7"],["Peach","#efaa80"],["Butter Yellow","#f4cf59"],
+        ["Pistachio","#a9c88c"],["Powder Blue","#a8c8df"],["Lilac","#b9a7d6"]
+      ],
+      note: "Light Indian wear, breezy fabrics, soft florals and cheerful daytime styling."
+    },
+    {
+      title: "Jashn Royale",
+      mood: "Dark, glamorous & sparkling",
+      description: "Rich evening tones with metallic accents and depth.",
+      colors: [
+        ["Black","#101010"],["Midnight","#243B73"],["Navy","#263961"],
+        ["Emerald","#00A36C"],["Burgundy","#8d1d43"],["Plum","#5f2b65"],["Silver","#b7bac2"]
+      ],
+      note: "Evening festive or cocktail wear, rich solids, sequins and metallic accents."
+    },
+    {
+      title: "Royal Wedding",
+      mood: "Rich Indian colours",
+      description: "Saturated festive colour grounded with unmistakable gold.",
+      colors: [
+        ["Rani Pink","#cf0a6a"],["Magenta","#ad0057"],["Vermilion","#dc4927"],
+        ["Saffron","#ef9b00"],["Marigold","#e9a900"],["Royal Purple","#6d2f91"],["Gold","#c99b37"]
+      ],
+      note: "For the Royal Wedding events, these colours can appear as accents or details through embroidery, dupattas, jackets and accessories. Wearing a full base shade from the palette is equally welcome."
+    }
+  ],
+  travel: {
+  "india": {
+    "label": "Joining Us from India",
+    "intro": "Whether you're joining us from Delhi NCR or another city, we look forward to welcoming you to Manesar for two days of celebration and togetherness.",
+    "sections": [
+      [
+        "The Venue",
+        [
+          "Heritage Village Resort & Spa, Manesar, is located along the Delhi–Jaipur highway (NH-48), with access from Delhi NCR and surrounding cities."
+        ]
+      ],
+      [
+        "Your Arrival",
+        [
+          "We look forward to welcoming you on Thursday, 28 January 2027. Shubh Arambh begins at 12:00 PM at Utsav, followed by Jashn Royale in the evening."
+        ]
+      ],
+      [
+        "Your Stay",
+        [
+          "All celebrations will take place within the resort. Accommodation and room-allocation details will be communicated individually, with checkout scheduled for 30 January."
+        ]
+      ]
+    ]
+  },
+  "usa": {
+    "label": "Travelling from the United States",
+    "intro": "First time visiting India? Your guide to navigating Delhi, staying connected and feeling prepared for the celebrations.",
+    "sections": [
+      [
+        "Before you fly",
+        [
+          "Check the Indian entry requirements for your passport. US passport holders generally need a valid visa; eligible OCI holders can travel using their OCI documentation.",
+          "Check whether the Government of India's e-Arrival Card applies to your trip, and complete it in the permitted pre-arrival window if required.",
+          "India's time zone is ahead of the US. Check your ticket's local arrival date carefully and plan to reach the resort on 28 January."
+        ]
+      ],
+      [
+        "Landing in Delhi",
+        [
+          "Fly into Indira Gandhi International Airport (DEL). Confirm your flight's terminal before arrival.",
+          "After immigration and baggage claim, follow official signs for taxis or your app-based pickup.",
+          "Use an official taxi, Uber/Ola where available, or a prearranged transfer for the journey to Manesar."
+        ]
+      ],
+      [
+        "Money, phones and local tips",
+        [
+          "India uses Indian Rupees (INR). Cards work at many established businesses; some cash helps for smaller purchases.",
+          "Check international roaming or India-compatible SIM/eSIM options before departure.",
+          "WhatsApp and Google Maps are useful for staying in touch and navigating."
+        ]
+      ],
+      [
+        "Weather and comfort",
+        [
+          "Delhi NCR can be chilly in January, especially mornings and evenings. Bring a jacket or shawl.",
+          "Prefer bottled or properly filtered drinking water rather than untreated tap water."
+        ]
+      ]
+    ]
+  },
+  "nigeria": {
+    "label": "A Celebration Across Continents",
+    "intro": "To our family and friends travelling from Nigeria, your presence means so much to us. We are delighted that you'll be joining us in India for this special occasion.",
+    "sections": [
+      [
+        "Arriving in Delhi",
+        [
+          "We look forward to welcoming you at Heritage Village Resort & Spa, Manesar, on 28 January 2027. All wedding festivities are hosted at the resort."
+        ]
+      ],
+      [
+        "Your Stay in Manesar",
+        [
+          "From Shubh Arambh to The Royal Union, we have two days of celebrations planned. Accommodation information will be shared individually, with checkout on 30 January."
+        ]
+      ],
+      [
+        "Travel Coordination",
+        [
+          "Once your travel arrangements are finalized, please share your arrival details through the RSVP section so our hospitality team can coordinate guest arrivals."
+        ]
+      ]
+    ]
+  },
+  "elsewhere": {
+    "label": "Joining Us from Around the World",
+    "intro": "Wherever you're travelling from, we're excited to celebrate with you in Manesar.",
+    "sections": [
+      [
+        "Arrival",
+        [
+          "Delhi's Indira Gandhi International Airport is the main arrival point for international guests."
+        ]
+      ],
+      [
+        "The Celebrations",
+        [
+          "Our wedding begins on 28 January at noon and continues through 29 January."
+        ]
+      ],
+      [
+        "Your Stay",
+        [
+          "All wedding celebrations are at Heritage Village Resort & Spa, with checkout on 30 January."
+        ]
+      ]
+    ]
+  },
+  "stay": {
+    "label": "Your Stay",
+    "intro": "Our celebrations are all at Heritage Village Resort & Spa, Manesar, so you can enjoy the wedding together in one place.",
+    "sections": [
+      [
+        "Arrival and departure",
+        [
+          "Recommended guest arrival: Thursday, 28 January 2027.",
+          "Checkout: Saturday, 30 January 2027.",
+          "Hotel check-in timing and any early room access will be communicated separately."
+        ]
+      ],
+      [
+        "Rooms and requests",
+        [
+          "Accommodation arrangements and room allocations will be communicated individually to guests whose stay is arranged.",
+          "Share accessibility requests, children travelling with you or room-sharing preferences in your RSVP.",
+          "All seven wedding events take place at the resort; check Celebrations for specific venue names and times."
+        ]
+      ]
+    ]
+  }
+},
+  firstTimeChecklist: [
+  {
+    "title": "Before You Fly",
+    "items": [
+      [
+        "Check your passport's validity and blank pages.",
+        "Indian e-Visa applications generally require at least six months of passport validity and two blank pages."
+      ],
+      [
+        "Arrange your Indian visa or confirm your OCI documentation.",
+        "Requirements depend on citizenship and travel documents. Verify with the official Indian government website."
+      ],
+      [
+        "Check whether an e-Arrival Card is required.",
+        "Follow the current Government of India instructions and timing for your travel documents."
+      ],
+      [
+        "Confirm that your ticket reaches Delhi in time on 28 January.",
+        "The first celebration begins at 12:00 PM, and you will need time for airport formalities and travel to Manesar."
+      ]
+    ]
+  },
+  {
+    "title": "Stay Connected",
+    "items": [
+      [
+        "Set up international roaming or an India-compatible SIM/eSIM.",
+        "Make sure your phone supports the service you select."
+      ],
+      [
+        "Download WhatsApp and Google Maps.",
+        "Useful for keeping in touch and navigating."
+      ],
+      [
+        "Save the resort address offline.",
+        "Heritage Village Resort & Spa, Manesar, Gurugram, Haryana."
+      ]
+    ]
+  },
+  {
+    "title": "Money & Everyday Essentials",
+    "items": [
+      [
+        "Bring an internationally enabled credit or debit card.",
+        "Check foreign transaction charges and carry a backup payment option."
+      ],
+      [
+        "Keep some Indian Rupees (INR) handy.",
+        "Small purchases and tips may be easier with cash."
+      ],
+      [
+        "Pack prescriptions and essential medicines.",
+        "Carry original packaging and supporting prescription information where appropriate."
+      ],
+      [
+        "Bring a compatible travel adapter.",
+        "India uses 230V power and commonly type C, D and M sockets; check device voltage ratings."
+      ]
+    ]
+  },
+  {
+    "title": "Pack for the Wedding",
+    "items": [
+      [
+        "Pack outfits for both wedding days.",
+        "Check the website's Dress Palette for event themes."
+      ],
+      [
+        "Bring comfortable shoes and a jacket or shawl.",
+        "January mornings and evenings in Delhi NCR can be chilly."
+      ],
+      [
+        "Keep essential items and valuables in your carry-on.",
+        "Follow airline hand-baggage limits."
+      ]
+    ]
+  },
+  {
+    "title": "When You Land",
+    "items": [
+      [
+        "Clear immigration and collect your luggage.",
+        "Keep your arrival documentation accessible."
+      ],
+      [
+        "Find an official taxi, app-based pickup or confirmed transfer.",
+        "Follow your terminal's designated transport signs."
+      ],
+      [
+        "Travel to Heritage Village Resort & Spa in Manesar.",
+        "Use the directions link and any hospitality instructions sent to you."
+      ]
+    ]
+  }
+],
+  faqs: [
+  [
+    "Wedding Events",
+    "When and where is the wedding?",
+    "Our celebrations take place on 28–29 January 2027 at Heritage Village Resort & Spa, Manesar, Gurugram."
+  ],
+  [
+    "Wedding Events",
+    "What time do the celebrations begin?",
+    "Shubh Arambh begins on Thursday, 28 January at 12:00 PM at Utsav. Find the full programme and venue details in Celebrations."
+  ],
+  [
+    "Wedding Events",
+    "What's the dress code for each function?",
+    "Each celebration has its own theme and colour palette. Visit Dress Palette for inspiration; exact shade matching is not required."
+  ],
+  [
+    "Wedding Events",
+    "What's the difference between The Royal Roll-In and Baraat Welcoming?",
+    "The Royal Roll-In at 5:00 PM at Heritage Main Porch is the groom's side of the procession. Baraat Welcoming at 6:30 PM at Sher Bagh is when the bride's family welcomes the groom and his family."
+  ],
+  [
+    "Accommodation",
+    "Is accommodation arranged for wedding guests?",
+    "Accommodation arrangements and room allocations will be communicated individually to guests whose stay has been organized as part of the wedding."
+  ],
+  [
+    "Accommodation",
+    "What are the arrival and checkout dates?",
+    "Recommended arrival is Thursday, 28 January 2027, with checkout on Saturday, 30 January 2027. Hotel check-in timing and early room access will be shared separately."
+  ],
+  [
+    "Accommodation",
+    "Can I request a particular room or share with family?",
+    "Include room-sharing preferences, accessibility needs or special requirements in your RSVP. Requests will be accommodated where possible."
+  ],
+  [
+    "Guest Logistics",
+    "Will transportation be arranged from Delhi Airport?",
+    "Airport transfers have not been confirmed. Please provide your flight information in your RSVP; any organized transfer details will be shared separately."
+  ],
+  [
+    "Guest Logistics",
+    "Who should I contact if I need assistance during the wedding?",
+    "Wedding hospitality contact details will be shared closer to the celebrations for help with arrivals, accommodation and on-site questions."
+  ],
+  [
+    "RSVP & Photos",
+    "Can I update my RSVP after submitting it?",
+    "Yes. Use the private edit link you receive after submitting to update your attendance, travel information or other details."
+  ],
+  [
+    "RSVP & Photos",
+    "Where can I find photographs from the wedding?",
+    "Visit the Photos section on this website during the celebrations. Photo access details will be available there."
+  ],
+  [
+    "RSVP & Photos",
+    "Can I bring additional guests or children?",
+    "Include everyone in your party, including children, in your RSVP. If your party size changes, use your private edit link or contact the wedding hospitality team."
+  ]
+]
+};
+(() => {
+  const C = window.WEDDING_CONTENT;
+  const $ = (q,p=document)=>p.querySelector(q);
+  const $ = (q,p=document)=>[...p.querySelectorAll(q)];
+  const storage={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
+
+
+  const menu=$(".menu-toggle"),nav=$("#nav");
+  function setMenuOpen(open){
+    nav?.classList.toggle("open",open);
+    menu?.setAttribute("aria-expanded",String(open));
+    menu?.setAttribute("aria-label",open?"Close menu":"Open menu");
+    document.body.classList.toggle("mobile-nav-open",open);
+  }
+  menu?.addEventListener("click",()=>setMenuOpen(!nav.classList.contains("open")));
+  $("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
+  window.addEventListener("hashchange",()=>setMenuOpen(false));
+  window.addEventListener("resize",()=>{if(window.innerWidth>900)setMenuOpen(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenuOpen(false)});
+
+  const target=new Date(C.weddingDate).getTime();
+  function tick(){
+    let d=Math.max(0,target-Date.now());
+    const days=Math.floor(d/86400000);d-=days*86400000;
+    const h=Math.floor(d/3600000);d-=h*3600000;
+    const m=Math.floor(d/60000);d-=m*60000;
+    const s=Math.floor(d/1000);
+    $("#days").textContent=String(days).padStart(3,"0");
+    $("#hours").textContent=String(h).padStart(2,"0");
+    $("#minutes").textContent=String(m).padStart(2,"0");
+    $("#seconds").textContent=String(s).padStart(2,"0");
+  }
+  tick();setInterval(tick,1000);
+
+  const eventList=$("#event-list");
+  C.events.forEach(e=>{
+    const card=document.createElement("article");
+    card.className="event-card reveal"+(e.side?" event-card-sided":"");
+    const venue = e.venue ? `<span>${e.venue}</span>` : "";
+    const side = e.side ? `<span class="event-side">${e.side}</span>` : "";
+    const theme = e.theme ? `<span class="event-theme">${e.theme}</span>` : "";
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}${theme}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    eventList.appendChild(card);
+  });
+
+  const paletteGrid=$("#palette-grid");
+  C.palettes.forEach(p=>{
+    const c=document.createElement("article");c.className="palette-card reveal";
+    c.style.setProperty("--c1",p.colors[0][1]);c.style.setProperty("--c2",p.colors[Math.floor(p.colors.length/2)][1]);c.style.setProperty("--c3",p.colors[p.colors.length-1][1]);
+    c.innerHTML=`<span class="mood">${p.mood}</span><h3>${p.title}</h3><p>${p.description}</p><div class="swatches">${p.colors.map(([n,v])=>`<div class="swatch" style="background:${v}">${n}</div>`).join("")}</div><p class="palette-note">${p.note}</p>`;
+    paletteGrid.appendChild(c);
+  });
+
+  const tabs=$("#travel-tabs"),panel=$("#travel-panel");
+  const labels={india:"From India",usa:"From USA",nigeria:"From Nigeria",elsewhere:"Elsewhere",stay:"Your Stay"};
+  const esc=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  const checklistKey="np-india-checklist-v1";
+  let completedChecklist=new Set();
+  try { const stored=JSON.parse(storage.get(checklistKey)||"[]"); if(Array.isArray(stored)) completedChecklist=new Set(stored.filter(x=>typeof x==="string")); } catch {}
+  function renderChecklist(){
+    const items=C.firstTimeChecklist.flatMap((group,gi)=>group.items.map((item,ii)=>({id:gi+"-"+ii,item})));
+    const checked=items.filter(x=>completedChecklist.has(x.id)).length;
+    return `<details class="first-time-checklist"><summary><span class="checklist-symbol" aria-hidden="true">✦</span><span><strong>First-Time India Checklist</strong><small>A practical, optional prep guide · ${checked} of ${items.length} complete</small></span><span class="checklist-chevron" aria-hidden="true">⌄</span></summary>
+      <div class="checklist-body"><p>Tick items off as you prepare. Your selections are saved on this device.</p>
+      <div class="checklist-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${items.length}" aria-valuenow="${checked}" aria-label="Travel preparation completed"><span style="width:${checked/items.length*100}%"></span></div>
+      ${C.firstTimeChecklist.map((group,gi)=>`<div class="checklist-group"><h4>${esc(group.title)}</h4>${group.items.map(([label,hint],ii)=>`<label class="checklist-item"><input type="checkbox" data-check="${gi}-${ii}" ${completedChecklist.has(gi+"-"+ii)?"checked":""}><span>${esc(label)}<small>${esc(hint)}</small></span></label>`).join("")}</div>`).join("")}
+      <div class="checklist-links"><a href="https://indianvisaonline.gov.in/evisa/" target="_blank" rel="noopener noreferrer">Official India e-Visa ↗</a><a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener noreferrer">e-Arrival Card ↗</a></div>
+      <button class="checklist-reset" type="button">Reset checklist</button></div></details>`;
+  }
+  function renderTravel(k){
+    if(!C.travel[k])k="india";
+    const x=C.travel[k];
+    $(".travel-tab").forEach(b=>{b.classList.toggle("active",b.dataset.key===k);b.setAttribute("aria-selected",String(b.dataset.key===k));});
+    panel.innerHTML=`<span class="eyebrow">Wedding concierge</span><h3>${esc(x.label)}</h3><p class="lead">${esc(x.intro)}</p>
+      <div class="travel-guide-sections">${x.sections.map(([heading,items])=>`<section class="travel-guide-section"><h4>${esc(heading)}</h4><ul>${items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></section>`).join("")}</div>
+      ${k==="usa"?renderChecklist():""}`;
+    if(k!=="stay")storage.set("np-origin",k);
+    if(k==="usa"){
+      bindChecklist();
+    }
+  }
+  function bindChecklist(){
+    panel.querySelectorAll(".first-time-checklist input[data-check]").forEach(box=>{box.onchange=()=>{
+      if(box.checked)completedChecklist.add(box.dataset.check);else completedChecklist.delete(box.dataset.check);
+      storage.set(checklistKey,JSON.stringify([...completedChecklist]));
+      const old=panel.querySelector(".first-time-checklist"),wasOpen=old.open;
+      const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();
+      old.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=wasOpen;
+      bindChecklist();
+    };});
+    const reset=panel.querySelector(".checklist-reset");
+    if(reset)reset.onclick=()=>{completedChecklist.clear();storage.set(checklistKey,"[]");const old=panel.querySelector(".first-time-checklist");const tmp=document.createElement("div");tmp.innerHTML=renderChecklist();old.replaceWith(tmp.firstElementChild);panel.querySelector(".first-time-checklist").open=true;bindChecklist();};
+  }
+  Object.keys(labels).forEach(k=>{const b=document.createElement("button");b.type="button";b.className="travel-tab";b.dataset.key=k;b.setAttribute("role","tab");b.textContent=labels[k];b.addEventListener("click",()=>renderTravel(k));tabs.appendChild(b)});
+  tabs.setAttribute("role","tablist");
+  renderTravel(storage.get("np-origin")||"india");
+
+  const faqList=$("#faq-list"),faqSearch=$("#faq-search"),faqFilters=$("#faq-filters");
+  const faqCategories=["All Questions","Wedding Events","Accommodation","Guest Logistics","RSVP & Photos"];
+  let faqCategory="All Questions";
+  function renderFaqs(){
+    const q=faqSearch.value.trim().toLowerCase();faqList.innerHTML="";
+    const matches=C.faqs.filter(([cat,question,answer])=>(faqCategory==="All Questions"||cat===faqCategory)&&(!q||(`${question} ${answer}`).toLowerCase().includes(q)));
+    if(!matches.length){faqList.innerHTML='<p class="faq-empty">No matching questions. Try another search.</p>';return;}
+    matches.forEach(([cat,question,answer])=>{
+      const x=document.createElement("article");x.className="faq-item reveal visible";
+      x.innerHTML=`<button class="faq-q" type="button" aria-expanded="false"><b>${esc(question)}</b><span class="faq-plus" aria-hidden="true">+</span></button><div class="faq-a" hidden>${esc(answer)}</div>`;
+      const b=$(".faq-q",x),a=$(".faq-a",x);
+      b.addEventListener("click",()=>{const open=a.hidden;a.hidden=!open;b.setAttribute("aria-expanded",String(open));$(".faq-plus",x).textContent=open?"−":"+";});
+      faqList.appendChild(x);
+    });
+  }
+  faqCategories.forEach(cat=>{
+    const b=document.createElement("button");b.type="button";b.className="faq-filter";b.textContent=cat;
+    b.addEventListener("click",()=>{faqCategory=cat;$(".faq-filter").forEach(x=>x.classList.toggle("active",x===b));renderFaqs();});
+    if(cat===faqCategory)b.classList.add("active");
+    faqFilters.appendChild(b);
+  });
+  faqSearch.addEventListener("input",renderFaqs);renderFaqs();
+
+  const RSVP_API="https://rkglbozacxbiojvnmqyb.supabase.co/functions/v1/wedding-rsvp";
+  const form=$("#rsvp-form");
+  const rsvpFields=$("#rsvp-fields");
+  const rsvpSuccess=$("#rsvp-success");
+  const attendingDetails=$("#attending-details");
+  const rsvpStatus=$("#rsvp-status");
+  const rsvpSubmit=$("#rsvp-submit");
+  const rsvpEditLink=$("#rsvp-edit-link");
+  const editNow=$("#edit-rsvp");
+  const copyLink=$("#copy-rsvp-link");
+  const queryToken=new URLSearchParams(location.search).get("rsvp");
+  try{localStorage.removeItem("np-rsvp-token")}catch{}
+  let rsvpToken=queryToken||"";
+
+  const setRsvpStatus=(message,type="")=>{
+    if(!rsvpStatus)return;
+    rsvpStatus.textContent=message;
+    rsvpStatus.dataset.type=type;
+  };
+
+  const updateAttendanceUI=()=>{
+    const value=$('input[name="attending"]:checked',form)?.value||"";
+    if(attendingDetails)attendingDetails.hidden=value!=="yes";
+  };
+
+  $('input[name="attending"]',form).forEach(input=>input.addEventListener("change",updateAttendanceUI));
+
+  const populateRsvp=(data)=>{
+    const map={
+      guestName:data.guest_name,
+      email:data.email,
+      partySize:data.party_size,
+      arrivalDate:data.arrival_date,
+      travelNumber:data.travel_number,
+      notes:data.notes
+    };
+    Object.entries(map).forEach(([name,value])=>{
+      const field=form?.elements.namedItem(name);
+      if(field && "value" in field)field.value=value??"";
+    });
+    const attending=data.attending===true?"yes":"no";
+    const radio=form?.querySelector(`input[name="attending"][value="${attending}"]`);
+    if(radio)radio.checked=true;
+    updateAttendanceUI();
+  };
+
+  const buildEditUrl=(token)=>{
+    const url=new URL(location.href);
+    url.search="";
+    url.hash="";
+    url.searchParams.set("rsvp",token);
+    url.hash="rsvp";
+    return url.toString();
+  };
+
+  const loadExistingRsvp=async()=>{
+    if(!rsvpToken)return;
+    setRsvpStatus("Loading your saved RSVP…");
+    try{
+      const res=await fetch(`${RSVP_API}?token=${encodeURIComponent(rsvpToken)}`,{
+        headers:{"accept":"application/json"}
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to load RSVP.");
+      populateRsvp(payload.rsvp);
+
+      if(rsvpSubmit)rsvpSubmit.textContent="Save changes";
+      setRsvpStatus("Your saved RSVP is loaded. Update anything that has changed.","success");
+    }catch(err){
+
+      rsvpToken="";
+      setRsvpStatus(err.message||"We couldn't load that RSVP. You can submit a new response.","error");
+    }
+  };
+
+  form?.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!form.reportValidity())return;
+
+    const data=Object.fromEntries(new FormData(form).entries());
+    const attending=data.attending==="yes";
+    const body={
+      async_email:true,
+      guest_name:data.guestName,
+      email:data.email,
+      attending:data.attending,
+      party_size:attending?data.partySize:"0",
+      arrival_date:attending?data.arrivalDate:"",
+      travel_number:attending?data.travelNumber:"",
+      dietary:"",
+      notes:data.notes||""
+    };
+    if(rsvpToken)body.edit_token=rsvpToken;
+
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=true;
+      rsvpSubmit.textContent="Saving…";
+    }
+    setRsvpStatus("Saving your RSVP…");
+
+    try{
+      const res=await fetch(RSVP_API,{
+        method:"POST",
+        headers:{"content-type":"application/json","accept":"application/json"},
+        body:JSON.stringify(body)
+      });
+      const payload=await res.json();
+      if(!res.ok||!payload.ok)throw new Error(payload.error||"Unable to save RSVP.");
+
+      const wasNew=!rsvpToken;
+      rsvpToken=payload.rsvp.edit_token;
+
+      const editUrl=buildEditUrl(rsvpToken);
+
+      if(rsvpEditLink){
+        rsvpEditLink.href=editUrl;
+        rsvpEditLink.textContent=editUrl;
+      }
+
+      const successCopy=$("#rsvp-success-copy");
+      if(successCopy){
+        const base=payload.rsvp.attending
+          ?"Your RSVP is saved. You can return later to add or update travel details."
+          :"Your response is saved. If your plans change, use your private edit link to update it.";
+        const emailNote=payload.email_queued
+          ?" We’re sending your private edit link to your email now."
+          :(wasNew ? " Your private edit link is available below." : "");
+        successCopy.textContent=base+emailNote;
+      }
+
+      rsvpFields.hidden=true;
+      rsvpSuccess.hidden=false;
+      setRsvpStatus("");
+    }catch(err){
+      setRsvpStatus(err.message||"Something went wrong. Please try again.","error");
+      if(rsvpSubmit){
+        rsvpSubmit.disabled=false;
+        rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+      }
+    }
+  });
+
+  editNow?.addEventListener("click",()=>{
+    rsvpSuccess.hidden=true;
+    rsvpFields.hidden=false;
+    if(rsvpSubmit){
+      rsvpSubmit.disabled=false;
+      rsvpSubmit.textContent=rsvpToken?"Save changes":"Send RSVP";
+    }
+    form?.querySelector('input[name="guestName"]')?.focus();
+  });
+
+  copyLink?.addEventListener("click",async()=>{
+    if(!rsvpToken)return;
+    const editUrl=buildEditUrl(rsvpToken);
+    try{
+      await navigator.clipboard.writeText(editUrl);
+      copyLink.textContent="Edit link copied";
+      setTimeout(()=>copyLink.textContent="Copy edit link",1800);
+    }catch{
+      rsvpEditLink?.focus();
+    }
+  });
+
+  updateAttendanceUI();
+  loadExistingRsvp();
+
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.1});
+  $(".reveal").forEach(x=>obs.observe(x));
+})();
+  </script>
   <!-- netlify-deploy-trigger-2026-09-27 -->
 </body>
 </html>
