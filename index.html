@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261109-5" />
+  <link rel="stylesheet" href="styles.css?v=20261109-6" />
   <link rel="stylesheet" href="rsvp.css?v=2" />
 </head>
 <body>
@@ -68,7 +68,7 @@
       <div class="section-shell intro-grid reveal">
         <div class="section-heading">
           <span class="eyebrow">You are invited</span>
-          <h2>Two days, seven moments,<br>one unforgettable celebration.</h2>
+          <h2>Two days, six chapters,<br>one unforgettable celebration.</h2>
         </div>
         <div class="intro-copy">
           <p>We are bringing together everything we love about an Indian wedding: colour, music, family, ritual, drama and a little royal excess.</p>
@@ -83,7 +83,7 @@
       <div class="section-shell">
         <div class="section-heading light reveal">
           <span class="eyebrow">The wedding programme</span>
-          <h2>Seven celebrations.<br>One unfolding story.</h2>
+          <h2>Six celebrations.<br>One unfolding story.</h2>
           <p>From a sunlit beginning to the sacred seven, the wedding unfolds as a sequence of distinct experiences.</p>
         </div>
         <div id="event-list" class="event-list"></div>
@@ -262,26 +262,17 @@ window.WEDDING_CONTENT = {
     },
     {
       number: "04",
-      name: "The Royal Roll-In",
+      name: "The Royal Baraat",
       date: "Friday  /  29 January",
-      time: "5:00 PM",
-      venue: "Heritage Main Porch",
-      side: "Groom’s side",
-      theme: "The Royal Soirée",
-      description: "To Love, To Togetherness, To Forever"
+      description: "A grand royal arrival, followed by a warm welcome as the celebrations come together.",
+      moments: [
+        { time: "5:00 PM", label: "The Royal Roll-In" },
+        { time: "6:30 PM", label: "Baraat Welcoming" }
+      ],
+      route: "Heritage Main Porch → Sher Bagh"
     },
     {
       number: "05",
-      name: "Baraat Welcoming",
-      date: "Friday  /  29 January",
-      time: "6:30 PM",
-      venue: "Sher Bagh",
-      side: "Bride’s side",
-      theme: "The Royal Soirée",
-      description: "To Love, To Togetherness, To Forever"
-    },
-    {
-      number: "06",
       name: "The Royal Union",
       date: "Friday  /  29 January",
       time: "7:00 PM",
@@ -290,7 +281,7 @@ window.WEDDING_CONTENT = {
       description: "To Love, To Togetherness, To Forever"
     },
     {
-      number: "07",
+      number: "06",
       name: "The Sacred Seven",
       date: "Friday  /  29 January",
       time: "10:30 PM",
@@ -457,7 +448,7 @@ window.WEDDING_CONTENT = {
         [
           "Accommodation arrangements and room allocations will be communicated individually to guests whose stay is arranged.",
           "Share accessibility requests, children travelling with you or room-sharing preferences in your RSVP.",
-          "All seven wedding events take place at the resort; check Celebrations for specific venue names and times."
+          "All wedding celebrations take place at the resort; check Celebrations for specific venue names and times."
         ]
       ]
     ]
@@ -576,8 +567,8 @@ window.WEDDING_CONTENT = {
   ],
   [
     "Wedding Events",
-    "What's the difference between The Royal Roll-In and Baraat Welcoming?",
-    "The Royal Roll-In at 5:00 PM at Heritage Main Porch is the groom's side of the procession. Baraat Welcoming at 6:30 PM at Sher Bagh is when the bride's family welcomes the groom and his family."
+    "What is The Royal Baraat?",
+    "The Royal Baraat brings together The Royal Roll-In at 5:00 PM (Heritage Main Porch) and Baraat Welcoming at 6:30 PM (Sher Bagh) in one celebration."
   ],
   [
     "Accommodation",
@@ -653,11 +644,13 @@ window.WEDDING_CONTENT = {
   const eventList=$("#event-list");
   C.events.forEach(e=>{
     const card=document.createElement("article");
-    card.className="event-card reveal"+(e.side?" event-card-sided":"");
-    const venue = e.venue ? `<span>${e.venue}</span>` : "";
-    const side = e.side ? `<span class="event-side">${e.side}</span>` : "";
-    const theme = e.theme ? `<span class="event-theme">${e.theme}</span>` : "";
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}${theme}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    const isCombined=Array.isArray(e.moments)&&e.moments.length>0;
+    card.className="event-card reveal"+(isCombined?" event-card-combined":"");
+    const theme=e.theme?`<span class="event-theme">${e.theme}</span>`:"";
+    const moments=isCombined?`<div class="event-moments" aria-label="Royal Baraat timings">${e.moments.map(m=>`<div class="event-moment"><time>${m.time}</time><span>${m.label}</span></div>`).join("")}</div><p class="event-route">${e.route}</p>`:"";
+    const venue=e.venue?`<span>${e.venue}</span>`:"";
+    const meta=isCombined?"":`<div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${theme}<h3>${e.name}</h3><p>${e.description}</p>${moments}</div>${meta}`;
     eventList.appendChild(card);
   });
 
