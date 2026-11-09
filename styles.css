@@ -1029,3 +1029,15 @@ body.splash-open{
 .palette-free-note{position:relative;z-index:2;margin:26px 0 0;padding:17px 22px;border-left:3px solid var(--gold);background:rgba(6,47,51,.055);color:var(--ink);font-size:.93rem;line-height:1.7}
 .palette-free-note strong{display:block;margin-bottom:4px;color:var(--peacock);font-family:"Cinzel",serif;font-size:.76rem;letter-spacing:.08em}
 @media(max-width:620px){.palette-free-note{margin-top:21px;padding:16px 18px;font-size:.88rem}}
+
+
+/* Unified Royal Baraat: two moments, one timeline item, matching existing event cards. */
+.event-card-combined .event-main{grid-column:2 / -1;min-width:0}
+.event-moments{display:grid;gap:10px;margin-top:18px;max-width:500px}
+.event-moment{display:grid;grid-template-columns:90px minmax(0,1fr);align-items:baseline;gap:16px}
+.event-moment+.event-moment{padding-top:10px;border-top:1px solid rgba(239,214,146,.16)}
+.event-moment time{font-family:"Cinzel",serif;font-size:.78rem;letter-spacing:.03em;color:var(--gold-light);white-space:nowrap}
+.event-moment span{font-size:.92rem;font-weight:600;color:rgba(255,255,255,.93);line-height:1.45}
+.event-card-combined .event-main .event-route{font-size:.8rem;margin:14px 0 0;color:rgba(255,255,255,.64);letter-spacing:.01em}
+@media(max-width:900px){.event-card-combined .event-main{grid-column:2}}
+@media(max-width:620px){.event-card-combined .event-main{grid-column:1}.event-moment{grid-template-columns:82px minmax(0,1fr);gap:10px}.event-moment span{font-size:.88rem}}
