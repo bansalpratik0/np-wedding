@@ -7,7 +7,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "12:00 PM",
       venue: "Utsav",
-      description: "The auspicious beginning of our wedding celebrations."
+      description: "A warm welcome, vibrant Mehendi, and the beginning of celebrations."
     },
     {
       number: "02",
@@ -15,7 +15,7 @@ window.WEDDING_CONTENT = {
       date: "Thursday  /  28 January",
       time: "7:00 PM",
       venue: "Haveli Bagh",
-      description: "Dark, glamorous and sparkling - an evening made for music, celebration and a little drama."
+      description: "An evening of dance, dazzle & unforgettable moments!"
     },
     {
       number: "03",
@@ -23,16 +23,17 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "11:00 AM",
       venue: "Anarkali Bagh",
-      description: "Pastels, sunshine and flowers come together for a bright daytime celebration."
+      description: "Where flowers bloom and celebrations glow!"
     },
     {
       number: "04",
       name: "The Royal Roll-In",
       date: "Friday  /  29 January",
-      time: "5:30 PM",
+      time: "5:00 PM",
       venue: "Heritage Main Porch",
       side: "Groom’s side",
-      description: "The groom’s procession begins with a grand royal arrival."
+      theme: "The Royal Soirée",
+      description: "To Love, To Togetherness, To Forever"
     },
     {
       number: "05",
@@ -49,7 +50,8 @@ window.WEDDING_CONTENT = {
       date: "Friday  /  29 January",
       time: "7:00 PM",
       venue: "Sher Bagh",
-      description: "An evening of celebration, music and rich Indian colour."
+      theme: "The Royal Soirée",
+      description: "To Love, To Togetherness, To Forever"
     },
     {
       number: "07",
@@ -362,7 +364,7 @@ window.WEDDING_CONTENT = {
   [
     "Wedding Events",
     "What's the difference between The Royal Roll-In and Baraat Welcoming?",
-    "The Royal Roll-In at 5:30 PM at Heritage Main Porch is the groom's side of the procession. Baraat Welcoming at 6:30 PM at Sher Bagh is when the bride's family welcomes the groom and his family."
+    "The Royal Roll-In at 5:00 PM at Heritage Main Porch is the groom's side of the procession. Baraat Welcoming at 6:30 PM at Sher Bagh is when the bride's family welcomes the groom and his family."
   ],
   [
     "Accommodation",
@@ -385,10 +387,6 @@ window.WEDDING_CONTENT = {
     "Airport transfers have not been confirmed. Please provide your flight information in your RSVP; any organized transfer details will be shared separately."
   ],
   [
-    "Guest Logistics",
-    "Will vegetarian and special dietary options be available?",
-    "Vegetarian options will be available. Please add Jain, vegan, allergy-related or other dietary requirements to your RSVP."
-  ],
   [
     "Guest Logistics",
     "Who should I contact if I need assistance during the wedding?",
@@ -397,7 +395,7 @@ window.WEDDING_CONTENT = {
   [
     "RSVP & Photos",
     "Can I update my RSVP after submitting it?",
-    "Yes. Use the private edit link you receive after submitting to update your attendance, travel information, dietary requirements or other details."
+    "Yes. Use the private edit link you receive after submitting to update your attendance, travel information or other details."
   ],
   [
     "RSVP & Photos",
