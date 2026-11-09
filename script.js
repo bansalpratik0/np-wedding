@@ -13,7 +13,7 @@
     document.body.classList.toggle("mobile-nav-open",open);
   }
   menu?.addEventListener("click",()=>setMenuOpen(!nav.classList.contains("open")));
-  $("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
+  $$("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
   window.addEventListener("hashchange",()=>setMenuOpen(false));
   window.addEventListener("resize",()=>{if(window.innerWidth>900)setMenuOpen(false)});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenuOpen(false)});
