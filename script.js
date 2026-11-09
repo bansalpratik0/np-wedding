@@ -6,8 +6,17 @@
 
 
   const menu=$(".menu-toggle"),nav=$("#nav");
-  menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});
-  $$("#nav a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false")}));
+  function setMenuOpen(open){
+    nav?.classList.toggle("open",open);
+    menu?.setAttribute("aria-expanded",String(open));
+    menu?.setAttribute("aria-label",open?"Close menu":"Open menu");
+    document.body.classList.toggle("mobile-nav-open",open);
+  }
+  menu?.addEventListener("click",()=>setMenuOpen(!nav.classList.contains("open")));
+  $("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
+  window.addEventListener("hashchange",()=>setMenuOpen(false));
+  window.addEventListener("resize",()=>{if(window.innerWidth>900)setMenuOpen(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenuOpen(false)});
 
   const target=new Date(C.weddingDate).getTime();
   function tick(){
@@ -29,7 +38,8 @@
     card.className="event-card reveal"+(e.side?" event-card-sided":"");
     const venue = e.venue ? `<span>${e.venue}</span>` : "";
     const side = e.side ? `<span class="event-side">${e.side}</span>` : "";
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    const theme = e.theme ? `<span class="event-theme">${e.theme}</span>` : "";
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}${theme}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
     eventList.appendChild(card);
   });
 
@@ -140,7 +150,6 @@
       guestName:data.guest_name,
       email:data.email,
       partySize:data.party_size,
-      dietary:data.dietary,
       arrivalDate:data.arrival_date,
       travelNumber:data.travel_number,
       notes:data.notes
@@ -198,7 +207,7 @@
       party_size:attending?data.partySize:"0",
       arrival_date:attending?data.arrivalDate:"",
       travel_number:attending?data.travelNumber:"",
-      dietary:attending?data.dietary:"",
+      dietary:"",
       notes:data.notes||""
     };
     if(rsvpToken)body.edit_token=rsvpToken;
