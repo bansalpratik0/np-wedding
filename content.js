@@ -364,7 +364,6 @@ window.WEDDING_CONTENT = {
     "Airport transfers have not been confirmed. Please provide your flight information in your RSVP; any organized transfer details will be shared separately."
   ],
   [
-  [
     "Guest Logistics",
     "Who should I contact if I need assistance during the wedding?",
     "Wedding hospitality contact details will be shared closer to the celebrations for help with arrivals, accommodation and on-site questions."
