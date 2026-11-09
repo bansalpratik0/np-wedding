@@ -96,30 +96,25 @@ window.WEDDING_CONTENT = {
   ],
   travel: {
   "india": {
-    "label": "Travelling from India",
-    "intro": "Joining us from Delhi NCR or another part of India? Here's the quickest way to plan your journey to Manesar.",
+    "label": "Joining Us from India",
+    "intro": "Whether you're joining us from Delhi NCR or another city, we look forward to welcoming you to Manesar for two days of celebration and togetherness.",
     "sections": [
       [
-        "Driving from Delhi NCR",
+        "The Venue",
         [
-          "Heritage Village Resort & Spa is located in Manesar along NH-48 (Delhi–Jaipur highway).",
-          "Use the directions link above for live road conditions and the resort entrance.",
-          "Allow extra time during Delhi NCR's busy traffic periods."
+          "Heritage Village Resort & Spa, Manesar, is located along the Delhi–Jaipur highway (NH-48), with access from Delhi NCR and surrounding cities."
         ]
       ],
       [
-        "Arriving by air or train",
+        "Your Arrival",
         [
-          "Fly into Indira Gandhi International Airport (DEL), or arrive at your chosen Delhi/Gurugram railway station.",
-          "Confirm your arrival station or terminal before arranging onward travel by road.",
-          "Please plan to reach the resort on 28 January, ideally before Shubh Arambh begins at noon."
+          "We look forward to welcoming you on Thursday, 28 January 2027. Shubh Arambh begins at 12:00 PM at Utsav, followed by Jashn Royale in the evening."
         ]
       ],
       [
-        "At the resort",
+        "Your Stay",
         [
-          "Follow your individual room-allocation or wedding hospitality instructions when you arrive.",
-          "Add flight or train information to your RSVP once confirmed."
+          "All celebrations will take place within the resort. Accommodation and room-allocation details will be communicated individually, with checkout scheduled for 30 January."
         ]
       ]
     ]
@@ -162,67 +157,49 @@ window.WEDDING_CONTENT = {
     ]
   },
   "nigeria": {
-    "label": "Travelling from Nigeria",
-    "intro": "For our family and friends travelling from Lagos, Abuja and elsewhere in Nigeria, here's how to prepare for your journey.",
+    "label": "A Celebration Across Continents",
+    "intro": "To our family and friends travelling from Nigeria, your presence means so much to us. We are delighted that you'll be joining us in India for this special occasion.",
     "sections": [
-      [
-        "Flights and connections",
-        [
-          "Compare routes into Delhi (DEL) and review total transit time, stopovers and any terminal changes.",
-          "Allow enough time for connecting flights and any applicable transit procedures.",
-          "Aim to reach the resort on 28 January, with enough time to attend the noon celebration if possible."
-        ]
-      ],
-      [
-        "Travel documents",
-        [
-          "Indian passport holders should check passport validity and documents required for their connecting itinerary.",
-          "If applicable, confirm Nigerian residence and re-entry documentation remains valid for the return journey.",
-          "Travellers using other passports should verify their own India entry requirements."
-        ]
-      ],
-      [
-        "Wedding luggage",
-        [
-          "Check baggage allowances on every airline in the booking, especially for connecting flights.",
-          "Keep valuables and essential wedding items in carry-on luggage within airline rules.",
-          "Save the resort address and flight confirmation offline before departure."
-        ]
-      ],
       [
         "Arriving in Delhi",
         [
-          "Confirm a taxi or other transfer to Manesar once your flight details are final.",
-          "Add arrival information to your RSVP so the wedding team has your itinerary."
+          "We look forward to welcoming you at Heritage Village Resort & Spa, Manesar, on 28 January 2027. All wedding festivities are hosted at the resort."
+        ]
+      ],
+      [
+        "Your Stay in Manesar",
+        [
+          "From Shubh Arambh to The Royal Union, we have two days of celebrations planned. Accommodation information will be shared individually, with checkout on 30 January."
+        ]
+      ],
+      [
+        "Travel Coordination",
+        [
+          "Once your travel arrangements are finalized, please share your arrival details through the RSVP section so our hospitality team can coordinate guest arrivals."
         ]
       ]
     ]
   },
   "elsewhere": {
-    "label": "Travelling from Elsewhere",
-    "intro": "Wherever your journey begins, a few essential pointers to make arriving in Manesar easier.",
+    "label": "Joining Us from Around the World",
+    "intro": "Wherever you're travelling from, we're excited to celebrate with you in Manesar.",
     "sections": [
       [
-        "Plan your journey",
+        "Arrival",
         [
-          "Fly into Indira Gandhi International Airport (DEL), New Delhi.",
-          "Compare total trip length, connections and baggage restrictions, not just the airfare.",
-          "Check the local date on your ticket: recommended guest arrival is 28 January 2027."
+          "Delhi's Indira Gandhi International Airport is the main arrival point for international guests."
         ]
       ],
       [
-        "Documents and transit",
+        "The Celebrations",
         [
-          "Check Indian visa or OCI requirements for your nationality and travel documents.",
-          "Verify any transit visa or airport transfer requirements along your route.",
-          "Keep copies of important travel documents and the resort address available offline."
+          "Our wedding begins on 28 January at noon and continues through 29 January."
         ]
       ],
       [
-        "Getting to the celebration",
+        "Your Stay",
         [
-          "Use an official airport taxi, app-based ride or confirmed transfer to reach Manesar.",
-          "Share your flight or train arrival information in your RSVP."
+          "All wedding celebrations are at Heritage Village Resort & Spa, with checkout on 30 January."
         ]
       ]
     ]
