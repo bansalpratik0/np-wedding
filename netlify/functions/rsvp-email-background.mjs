@@ -88,7 +88,7 @@ export default async (req) => {
         "Your private RSVP edit link:",
         context.editUrl,
         "",
-        "Use this link later to update travel details, dietary requirements, guest count, or attendance.",
+        "Use this link later to update travel details, guest count, or attendance.",
         "",
         "With love,",
         "Nishika & Pratik"
@@ -99,7 +99,7 @@ export default async (req) => {
           <p>${attendanceLine}</p>
           <p>Your private RSVP edit link:</p>
           <p><a href="${context.editUrl}" style="color:#0a5b5c;font-weight:700">View or update your RSVP</a></p>
-          <p style="font-size:13px;color:#667273">Use this link later to update travel details, dietary requirements, guest count, or attendance.</p>
+          <p style="font-size:13px;color:#667273">Use this link later to update travel details, guest count, or attendance.</p>
           <p>With love,<br><strong>Nishika &amp; Pratik</strong></p>
         </div>
       `
