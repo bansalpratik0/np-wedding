@@ -622,7 +622,7 @@ window.WEDDING_CONTENT = {
 (() => {
   const C = window.WEDDING_CONTENT;
   const $ = (q,p=document)=>p.querySelector(q);
-  const $ = (q,p=document)=>[...p.querySelectorAll(q)];
+  const $$ = (q,p=document)=>[...p.querySelectorAll(q)];
   const storage={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 
 
@@ -634,7 +634,7 @@ window.WEDDING_CONTENT = {
     document.body.classList.toggle("mobile-nav-open",open);
   }
   menu?.addEventListener("click",()=>setMenuOpen(!nav.classList.contains("open")));
-  $("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
+  $$("#nav a").forEach(a=>a.addEventListener("click",()=>setMenuOpen(false)));
   window.addEventListener("hashchange",()=>setMenuOpen(false));
   window.addEventListener("resize",()=>{if(window.innerWidth>900)setMenuOpen(false)});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenuOpen(false)});
@@ -691,7 +691,7 @@ window.WEDDING_CONTENT = {
   function renderTravel(k){
     if(!C.travel[k])k="india";
     const x=C.travel[k];
-    $(".travel-tab").forEach(b=>{b.classList.toggle("active",b.dataset.key===k);b.setAttribute("aria-selected",String(b.dataset.key===k));});
+    $$(".travel-tab").forEach(b=>{b.classList.toggle("active",b.dataset.key===k);b.setAttribute("aria-selected",String(b.dataset.key===k));});
     panel.innerHTML=`<span class="eyebrow">Wedding concierge</span><h3>${esc(x.label)}</h3><p class="lead">${esc(x.intro)}</p>
       <div class="travel-guide-sections">${x.sections.map(([heading,items])=>`<section class="travel-guide-section"><h4>${esc(heading)}</h4><ul>${items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></section>`).join("")}</div>
       ${k==="usa"?renderChecklist():""}`;
@@ -733,7 +733,7 @@ window.WEDDING_CONTENT = {
   }
   faqCategories.forEach(cat=>{
     const b=document.createElement("button");b.type="button";b.className="faq-filter";b.textContent=cat;
-    b.addEventListener("click",()=>{faqCategory=cat;$(".faq-filter").forEach(x=>x.classList.toggle("active",x===b));renderFaqs();});
+    b.addEventListener("click",()=>{faqCategory=cat;$$(".faq-filter").forEach(x=>x.classList.toggle("active",x===b));renderFaqs();});
     if(cat===faqCategory)b.classList.add("active");
     faqFilters.appendChild(b);
   });
@@ -764,7 +764,7 @@ window.WEDDING_CONTENT = {
     if(attendingDetails)attendingDetails.hidden=value!=="yes";
   };
 
-  $('input[name="attending"]',form).forEach(input=>input.addEventListener("change",updateAttendanceUI));
+  $$('input[name="attending"]',form).forEach(input=>input.addEventListener("change",updateAttendanceUI));
 
   const populateRsvp=(data)=>{
     const map={
@@ -907,9 +907,9 @@ window.WEDDING_CONTENT = {
   loadExistingRsvp();
 
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.1});
-  $(".reveal").forEach(x=>obs.observe(x));
+  $$(".reveal").forEach(x=>obs.observe(x));
 })();
-  </script>
+</script>
   <!-- netlify-deploy-trigger-2026-09-27 -->
 </body>
 </html>
