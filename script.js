@@ -35,11 +35,13 @@
   const eventList=$("#event-list");
   C.events.forEach(e=>{
     const card=document.createElement("article");
-    card.className="event-card reveal"+(e.side?" event-card-sided":"");
-    const venue = e.venue ? `<span>${e.venue}</span>` : "";
-    const side = e.side ? `<span class="event-side">${e.side}</span>` : "";
-    const theme = e.theme ? `<span class="event-theme">${e.theme}</span>` : "";
-    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${side}${theme}<h3>${e.name}</h3><p>${e.description}</p></div><div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    const isCombined=Array.isArray(e.moments)&&e.moments.length>0;
+    card.className="event-card reveal"+(isCombined?" event-card-combined":"");
+    const theme=e.theme?`<span class="event-theme">${e.theme}</span>`:"";
+    const moments=isCombined?`<div class="event-moments" aria-label="Royal Baraat timings">${e.moments.map(m=>`<div class="event-moment"><time>${m.time}</time><span>${m.label}</span></div>`).join("")}</div><p class="event-route">${e.route}</p>`:"";
+    const venue=e.venue?`<span>${e.venue}</span>`:"";
+    const meta=isCombined?"":`<div class="event-meta"><strong>${e.time}</strong>${venue}</div>`;
+    card.innerHTML=`<div class="event-index"><strong>${e.number}</strong>${e.date}</div><div class="event-main">${theme}<h3>${e.name}</h3><p>${e.description}</p>${moments}</div>${meta}`;
     eventList.appendChild(card);
   });
 
