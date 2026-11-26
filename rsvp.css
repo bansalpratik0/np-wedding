@@ -12,6 +12,9 @@
 .rsvp-status[data-type="error"]{color:#9a2639}
 .rsvp-status[data-type="success"]{color:#0a5b5c}
 .rsvp-private-link{display:block;max-width:100%;margin:18px auto 0;padding:11px 13px;border:1px solid rgba(6,47,51,.12);background:rgba(6,47,51,.05);color:var(--peacock);font-size:.72rem;line-height:1.4;overflow-wrap:anywhere;text-decoration:none}
-.rsvp-success-actions{justify-content:center;margin-top:14px}
+.rsvp-success-actions{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:18px}
+.rsvp-success-actions .text-btn{flex:0 0 auto;max-width:100%;white-space:normal;text-align:center}
 #rsvp-submit[disabled]{opacity:.65;cursor:wait}
 @media(max-width:620px){.choice-row{grid-template-columns:1fr}.choice-card{min-height:54px}}
+
+@media(max-width:620px){.rsvp-success-actions{gap:16px 24px}.rsvp-success-actions .text-btn{padding:9px 4px}}
